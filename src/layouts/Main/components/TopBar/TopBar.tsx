@@ -3,11 +3,16 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 //components
-import DarkModeToggler from "../../../../components/atoms/DarkModeToggler/DarkModeToggler"
-import Search from "./Search"
 
 //material UI
-import { useMediaQuery, AppBar, Toolbar, Grid, Box } from "@material-ui/core"
+import {
+  useMediaQuery,
+  AppBar,
+  Toolbar,
+  Grid,
+  Box,
+  Container,
+} from "@material-ui/core"
 import IconButton from "@material-ui/core/IconButton"
 import Typography from "@material-ui/core/Typography"
 import {
@@ -26,24 +31,15 @@ interface Props {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
-
-    titleDenisa: {
-      flexGrow: 1,
-      display: "none",
-      textAlign: "right",
+    root: {},
+    toolbar: {
+      zIndex: 999,
+      maxWidth: theme.layout.contentWidth,
+      width: "100%",
+      margin: "0 auto",
+      padding: theme.spacing(0, 2),
       [theme.breakpoints.up("sm")]: {
-        display: "block",
-      },
-    },
-    titleLukas: {
-      flexGrow: 1,
-      display: "none",
-      textAlign: "left",
-      [theme.breakpoints.up("sm")]: {
-        display: "block",
+        padding: theme.spacing(0, 8),
       },
     },
   })
@@ -57,91 +53,20 @@ const TopBar = ({ themeMode, themeToggler }: Props): JSX.Element => {
   })
   return (
     <header>
-      <div className={classes.root}>
+      <Container className={classes.root}>
         <AppBar position="fixed" color="transparent">
-          <Toolbar>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-            >
-              <Grid
-                item
-                container
-                direction="row"
-                justify="space-between"
-                alignItems="center"
-              >
-                <Grid
-                  item
-                  xs
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                >
-                  <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                  >
-                    <InstagramIcon />
-                  </IconButton>
-
-                  {isMd && <Search />}
-                </Grid>
-                <Grid
-                  item
-                  xs
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                >
-                  <Typography className={classes.titleDenisa}>
-                    Denisa
-                  </Typography>
-                  <StaticImage
-                    src="../../../../images/logo2x.png"
-                    width={50}
-                    quality={95}
-                    alt="logo Denisa Lukas"
-                  />
-                  <Typography className={classes.titleLukas}>Lukáš</Typography>
-                </Grid>
-                <Grid
-                  item
-                  xs
-                  container
-                  direction="row"
-                  justify="flex-end"
-                  alignItems="center"
-                >
-                  <Box mr={2}>
-                    <DarkModeToggler
-                      themeMode={themeMode}
-                      onClick={() => themeToggler()}
-                    />
-                  </Box>
-                  <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                </Grid>
-              </Grid>
-              {!isMd && (
-                <Grid container>
-                  <Search />
-                </Grid>
-              )}
-            </Grid>
+          <Toolbar className={classes.toolbar}>
+            <StaticImage
+              src="../../../../assets/images/logo.jpg"
+              alt="Logo Jana Buthova"
+              placeholder="blurred"
+              layout="fixed"
+              width={100}
+              height={100}
+            />
           </Toolbar>
         </AppBar>
-      </div>
+      </Container>
     </header>
   )
 }

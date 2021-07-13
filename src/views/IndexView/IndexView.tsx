@@ -1,31 +1,29 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
 import { makeStyles, Divider } from "@material-ui/core"
+
+//components
+import Hero from "./components/Hero"
 
 const useStyles = makeStyles(() => ({
   sectionNoPaddingTop: {
     paddingTop: 0,
   },
+  sectionNoPaddingY: {
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
 }))
 
 //components
 import Section from "../../components/organisms/Section/Section"
-import Hero from "./components/hero/hero"
-import Countries from "./components/countries/countries"
-import Places from "./components/places/places"
 
 const IndexPage = () => {
   const classes = useStyles()
   return (
     <div>
-      <Hero />
-      <Section fullWidth>
-        <Countries />
-      </Section>
-      <Section fullWidth className={classes.sectionNoPaddingTop}>
-        <Places />
+      <Section className={classes.sectionNoPaddingY}>
+        <Hero />
       </Section>
     </div>
   )

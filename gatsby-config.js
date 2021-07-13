@@ -3,8 +3,8 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Denisa&Lukas`,
-    description: `Cestovni blog`,
+    title: `Jana Búthová`,
+    description: `Personal trainer`,
     author: `@Lukas Valta <valtalukas@sezanm.cz>`,
     social: {
       twitter: `Lukas`,
@@ -17,7 +17,7 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `xm8ql6j0af6m`,
+        spaceId: `8h7p5m57illg`,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },

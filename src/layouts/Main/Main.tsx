@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import clsx from "clsx"
+import { StaticImage } from "gatsby-plugin-image"
+//material UI
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { useMediaQuery, Divider } from "@material-ui/core"
+//components
 import Topbar from "./components/TopBar/TopBar"
 import Footer from "./components/Footer/Footer"
 

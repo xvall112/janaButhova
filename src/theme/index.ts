@@ -8,7 +8,7 @@ const getTheme = mode =>
       overrides: {
         MuiButton: {
           root: {
-            borderRadius: "25px",
+            borderRadius: "0px",
           },
         },
       },
