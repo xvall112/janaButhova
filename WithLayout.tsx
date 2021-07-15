@@ -3,7 +3,7 @@ import { ThemeProvider } from "@material-ui/core/styles"
 import { Paper } from "@material-ui/core"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import getTheme from "./src/theme/index"
-
+import { Helmet } from "react-helmet"
 import AOS from "aos"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -76,6 +76,12 @@ export default function WithLayout({
   const classes = useStyles()
   return (
     <ThemeProvider theme={getTheme(themeMode)}>
+      <Helmet>
+        <script
+          src="https://kit.fontawesome.com/4c273e6d43.js"
+          crossOrigin="anonymous"
+        ></script>
+      </Helmet>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       <Paper elevation={0}>

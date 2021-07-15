@@ -7,6 +7,7 @@ import { useMediaQuery, Divider } from "@material-ui/core"
 //components
 import Topbar from "./components/TopBar/TopBar"
 import Footer from "./components/Footer/Footer"
+import Sidebar from "./components/Sidebar/Sidebar"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,11 +17,9 @@ const useStyles = makeStyles(theme => ({
 
 interface Props {
   children: React.ReactNode
-  themeToggler: Function
-  themeMode: string
 }
 
-const Main = ({ children, themeToggler, themeMode }: Props): JSX.Element => {
+const Main = ({ children }: Props): JSX.Element => {
   const classes = useStyles()
 
   const theme = useTheme()
@@ -46,14 +45,8 @@ const Main = ({ children, themeToggler, themeMode }: Props): JSX.Element => {
         [classes.root]: true,
       })}
     >
-      {/* <Topbar onSidebarOpen={handleSidebarOpen} themeMode={themeMode} themeToggler={themeToggler} /> */}
-      <Topbar themeMode={themeMode} themeToggler={themeToggler} />
-      {/*  <Sidebar
-        onClose={handleSidebarClose}
-        open={open}
-        variant="temporary"
-      
-      /> */}
+      <Topbar openSideBar={handleSidebarOpen} />
+      <Sidebar onClose={handleSidebarClose} open={open} variant="temporary" />
       <main>
         {/*  <Divider /> */}
         {children}

@@ -1,6 +1,6 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react"
+import clsx from "clsx"
+import { makeStyles } from "@material-ui/core/styles"
 import {
   Grid,
   Avatar,
@@ -9,15 +9,16 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-} from '@material-ui/core';
-import { CardBase } from 'components/organisms';
+} from "@material-ui/core"
+import { CardBase } from "components/organisms"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100%',
-    width: '100%',
+    backgroundColor: theme.palette.alternate.main,
+    height: "100%",
+    width: "100%",
   },
-}));
+}))
 
 /**
  * Component to display the review card
@@ -30,26 +31,33 @@ const CardReview = ({
   authorPhoto,
   authorName,
   authorTitle,
-  align = 'center',
-  textVariant = 'h6',
+  align = "center",
+  textVariant = "h6",
   className,
   textProps = {},
   listItemPrimaryTypographyProps = {},
   listItemSecondaryTypographyProps = {},
   ...rest
 }: CardReviewProps): JSX.Element => {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  let justifyGrid: ('center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly' | undefined) = 'center';
-  if (align === 'left') {
-    justifyGrid = 'flex-start';
-  } else if (align === 'right') {
-    justifyGrid = 'flex-end';
+  let justifyGrid:
+    | "center"
+    | "flex-start"
+    | "flex-end"
+    | "space-between"
+    | "space-around"
+    | "space-evenly"
+    | undefined = "center"
+  if (align === "left") {
+    justifyGrid = "flex-start"
+  } else if (align === "right") {
+    justifyGrid = "flex-end"
   }
 
   return (
     <CardBase
-      className={clsx('card-review', classes.root, className)}
+      className={clsx("card-review", classes.root, className)}
       {...rest}
     >
       <Grid container spacing={2} className="card-review__wrapper">
@@ -104,7 +112,7 @@ const CardReview = ({
         </Grid>
       </Grid>
     </CardBase>
-  );
-};
+  )
+}
 
-export default CardReview;
+export default CardReview

@@ -3,8 +3,8 @@ import { PaletteType } from "@material-ui/core"
 
 export const light = {
   alternate: {
-    main: "rgb(247, 249, 250)",
-    dark: "#e8eaf6",
+    main: "#303030",
+    dark: "rgb(247, 249, 250)",
   },
   cardShadow: "rgba(23, 70, 161, .11)",
   common: {
@@ -13,9 +13,9 @@ export const light = {
   },
   type: "light" as PaletteType,
   primary: {
-    main: "#3f51b5",
-    light: "rgb(71, 145, 219)",
-    dark: "rgb(17, 82, 147)",
+    main: "#FDCB00",
+    light: "#FFEC9E",
+    dark: "#FDCB00",
     contrastText: "#fff",
   },
   secondary: {
@@ -25,8 +25,8 @@ export const light = {
     contrastText: "rgba(0, 0, 0, 0.87)",
   },
   text: {
-    primary: "#2d3748",
-    secondary: "#718096",
+    primary: "#EEEEEF",
+    secondary: "#AEB0B4",
   },
   divider: "rgba(0, 0, 0, 0.12)",
   background: {
