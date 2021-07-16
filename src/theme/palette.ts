@@ -3,7 +3,7 @@ import { PaletteType } from "@material-ui/core"
 
 export const light = {
   alternate: {
-    main: "#303030",
+    main: "#171717",
     dark: "rgb(247, 249, 250)",
   },
   cardShadow: "rgba(23, 70, 161, .11)",

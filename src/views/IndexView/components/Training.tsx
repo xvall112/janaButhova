@@ -24,7 +24,7 @@ const Training = ({ data }) => {
   return (
     <div id="training">
       <Grid container direction="row">
-        {data.map((item, index) => {
+        {data.allContentfulNabizim.nodes.map((item, index) => {
           return (
             <Grid item xs={12} md={4} key={index} className={classes.root}>
               <Link to={`/${item.slug}`}>
@@ -69,7 +69,7 @@ const Training = ({ data }) => {
         </Box> */}
 
                         <Box fontSize={18} textAlign="center">
-                          {item.description}
+                          {item.shortDescription}
                         </Box>
                       </Typography>
                       <Box mt={2} textAlign="center">
@@ -94,10 +94,9 @@ const Training = ({ data }) => {
                       ></Grid>
                     </Box>
                   </div>
-                  <StaticImage
-                    src="../../../assets/images/skupinoveIndoor.jpg"
-                    alt="obrazek"
-                    className={classes.img}
+                  <GatsbyImage
+                    image={item.obrazek.gatsbyImageData}
+                    alt={item.title}
                     style={{
                       gridArea: "1/1",
                       height: "50vh",

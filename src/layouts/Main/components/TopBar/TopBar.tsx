@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
     appBar: {
-      backgroundColor: "#303030",
+      backgroundColor: theme.palette.alternate.main,
     },
     navigation: {
       "& :hover": {
@@ -74,7 +74,7 @@ const TopBar = ({ openSideBar }): JSX.Element => {
           >
             <Grid item>
               <StaticImage
-                src="../../../../assets/images/logo.jpg"
+                src="../../../../assets/images/logoo.png"
                 alt="Logo Jana Buthova"
                 placeholder="blurred"
                 layout="fixed"
@@ -94,7 +94,7 @@ const TopBar = ({ openSideBar }): JSX.Element => {
                         className={classes.navigation}
                       >
                         <Typography color="primary" variant="button">
-                          {item.title}
+                          <Box fontWeight="bold">{item.title}</Box>
                         </Typography>
                       </Box>
                     )

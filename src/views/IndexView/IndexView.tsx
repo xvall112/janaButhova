@@ -1,8 +1,9 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import { makeStyles, Divider } from "@material-ui/core"
 
 //components
+import { Hidden } from "@material-ui/core"
 import Hero from "./components/Hero"
 import FourPictures from "./components/FoutPictures"
 import AboutMe from "./components/AboutMe"
@@ -23,6 +24,26 @@ import {
   aboutMe,
   reviews,
 } from "./components/data"
+
+const query = graphql`
+  {
+    allContentfulNabizim {
+      nodes {
+        obrazek {
+          gatsbyImageData(placeholder: BLURRED, width: 500)
+        }
+        id
+        slug
+        title
+        shortDescription
+        longDescription {
+          raw
+        }
+      }
+    }
+  }
+`
+
 const useStyles = makeStyles(theme => ({
   sectionNoPaddingTop: {
     paddingTop: 0,
@@ -42,17 +63,23 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const IndexPage = () => {
+  const data = useStaticQuery(query)
   const classes = useStyles()
   return (
     <div>
-      <Section className={classes.sectionNoPaddingY}>
+      <Hidden smDown>
+        <Section className={classes.sectionNoPaddingY}>
+          <Hero />
+        </Section>
+      </Hidden>
+      <Hidden smUp>
         <Hero />
-      </Section>
+      </Hidden>
       <FourPictures />
       <SectionAlternate>
         <AboutMe data={aboutMe} />
       </SectionAlternate>
-      <Training data={training} />
+      <Training data={data} />
       <SectionAlternate primary>
         <Price
           pricePersonal={pricePersonal}
