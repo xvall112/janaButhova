@@ -93,9 +93,9 @@ const IndexPage = () => {
       <Section>
         <Reviews data={reviews} />
       </Section>
-      <Section className={classes.sectionNoPaddingTop}>
+      {/* <Section className={classes.sectionNoPaddingTop}>
         <Recepy />
-      </Section>
+      </Section> */}
       <SectionAlternate className={classes.sectionNoPaddingTop}>
         <Contact />
       </SectionAlternate>

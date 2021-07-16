@@ -1,6 +1,6 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import scrollTo from "gatsby-plugin-smoothscroll"
 //data
 import { navigation } from "../../../../views/IndexView/components/data"
@@ -31,6 +31,13 @@ import FacebookIcon from "@material-ui/icons/Facebook"
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
 import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined"
 
+export const query = graphql`
+  {
+    contentfulAsset(title: { eq: "LOGO" }) {
+      gatsbyImageData(width: 80, height: 80)
+    }
+  }
+`
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
@@ -45,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     toolbar: {
       zIndex: 999,
-      maxWidth: theme.layout.contentWidth,
+
       width: "100%",
       margin: "0 auto",
       padding: theme.spacing(0, 2),
@@ -62,6 +69,7 @@ const TopBar = ({ openSideBar }): JSX.Element => {
   const isMd = useMediaQuery(theme.breakpoints.up("md"), {
     defaultMatches: true,
   })
+  const data = useStaticQuery(query)
   return (
     <header>
       <AppBar position="static" className={classes.appBar}>
@@ -73,13 +81,9 @@ const TopBar = ({ openSideBar }): JSX.Element => {
             alignItems="center"
           >
             <Grid item>
-              <StaticImage
-                src="../../../../assets/images/logoo.png"
+              <GatsbyImage
+                image={data.contentfulAsset.gatsbyImageData}
                 alt="Logo Jana Buthova"
-                placeholder="blurred"
-                layout="fixed"
-                width={80}
-                height={80}
               />
             </Grid>
             <Hidden smDown>

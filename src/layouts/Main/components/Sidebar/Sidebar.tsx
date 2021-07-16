@@ -34,8 +34,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   root: {
-    height: "100%",
-
     "& a": { textDecoration: "none", paddingTop: theme.spacing(2) },
     "& a:hover": {
       textDecoration: "underline",
@@ -99,7 +97,7 @@ const Sidebar = ({
                     color="inherit"
                     onClick={() => onClose()}
                   >
-                    <CloseIcon fontSize="large" />
+                    <CloseIcon fontSize="large" color="primary" />
                   </IconButton>
                 </Box>
               </Grid>

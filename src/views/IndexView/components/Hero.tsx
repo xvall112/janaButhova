@@ -43,7 +43,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
     <>
       <Box pt={isMd ? 10 : 0} {...rest} id="hero">
         <Hidden smUp>
-          <div style={{ display: "grid", width: "100vw" }}>
+          <div style={{ display: "grid" }}>
             <div
               style={{
                 // By using the same grid area for both, they are stacked on top of each other
@@ -53,7 +53,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                 zIndex: 100,
                 // This centers the other elements inside the hero component
                 display: "grid",
-                backgroundColor: "rgba(0, 0, 0, 0.1)",
+                backgroundColor: "rgba(0, 0, 0, 0.0)",
                 width: "100vw",
               }}
             >
@@ -61,7 +61,6 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                 container
                 justify="space-between"
                 alignItems="center"
-                spacing={isMd ? 4 : 2}
                 className={classes.root}
               >
                 <Grid item xs={12} md={5} data-aos={"fade-up"}>
@@ -97,7 +96,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                               "VÝŽIVOVÉ PORADENSTVÍ",
                               "TRÉNINKOVÉ PLÁNY",
                             ],
-                            typeSpeed: 50,
+                            typeSpeed: 70,
                             loop: true,
                           }}
                         />

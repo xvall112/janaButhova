@@ -11,9 +11,12 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       width: "100%",
     },
+    according: {
+      backgroundColor: theme.palette.alternate.main,
+    },
     heading: {
       flexShrink: 0,
-      color: theme.palette.text.secondary,
+      color: theme.palette.text.primary,
       fontSize: "16px",
       fontWeight: "bold",
     },
@@ -46,6 +49,7 @@ const Price = ({ pricePersonal, priceGroup, pricePoradenstvi }) => {
             key={index}
             expanded={expanded === item.id}
             onChange={handleChange(item.id)}
+            className={classes.according}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
@@ -83,6 +87,7 @@ const Price = ({ pricePersonal, priceGroup, pricePoradenstvi }) => {
       {pricePersonal.map((item, index) => {
         return (
           <Accordion
+            className={classes.according}
             key={index}
             expanded={expanded === item.id}
             onChange={handleChange(item.id)}
@@ -123,6 +128,7 @@ const Price = ({ pricePersonal, priceGroup, pricePoradenstvi }) => {
       {pricePoradenstvi.map((item, index) => {
         return (
           <Accordion
+            className={classes.according}
             key={index}
             expanded={expanded === item.id}
             onChange={handleChange(item.id)}

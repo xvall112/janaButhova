@@ -144,12 +144,7 @@ const Galery = ({
           <Section disablePadding>
             <Grid container>
               <Grid item xs={12} sm={6}>
-                <SectionHeader
-                  title="What about working?"
-                  subtitle="After 3 days all of your offers will arrive and you will have another 7 days to select your new company."
-                  fadeUp
-                  align="left"
-                />
+                <SectionHeader title="Videa" subtitle="" fadeUp align="left" />
               </Grid>
               {isSm && (
                 <Grid item container xs={12} sm={6} justify="flex-end">
