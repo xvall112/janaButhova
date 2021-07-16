@@ -152,7 +152,7 @@ const Sidebar = ({
             alt="obrazek"
             style={{
               gridArea: "1/1",
-              width: "100vw",
+
               zIndex: 1,
               // You can set a maximum height for the image, if you wish.
               // maxHeight: 600,

@@ -47,10 +47,7 @@ const Main = ({ children }: Props): JSX.Element => {
     >
       <Topbar openSideBar={handleSidebarOpen} />
       <Sidebar onClose={handleSidebarClose} open={open} variant="temporary" />
-      <main>
-        {/*  <Divider /> */}
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </div>
   )

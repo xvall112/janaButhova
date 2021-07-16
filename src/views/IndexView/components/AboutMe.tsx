@@ -152,7 +152,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
           ))}
         </Grid>
       </Box>
-      <Box mt={10}>
+      <Box mt={5}>
         <Grid container spacing={4}>
           <Grid item container xs={12} justify="center">
             <Button

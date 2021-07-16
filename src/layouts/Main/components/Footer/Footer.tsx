@@ -2,9 +2,8 @@ import React from "react"
 
 const Footer = () => {
   return (
-    <div>
-      <h2>Footer Lukas Valta</h2>
-      <p>contentful, material Ui,</p>
+    <div style={{ textAlign: "center" }}>
+      <h2>Lukas Valta</h2>
     </div>
   )
 }

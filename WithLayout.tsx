@@ -85,11 +85,7 @@ export default function WithLayout({
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       <Paper elevation={0}>
-        <Layout
-          themeMode={themeMode}
-          themeToggler={themeToggler}
-          className={classes.root}
-        >
+        <Layout className={classes.root}>
           <Component themeMode={themeMode} {...rest} />
         </Layout>
       </Paper>

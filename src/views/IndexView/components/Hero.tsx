@@ -53,7 +53,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                 zIndex: 100,
                 // This centers the other elements inside the hero component
                 display: "grid",
-                backgroundColor: "rgba(0, 0, 0, 0.0)",
+                backgroundColor: "rgba(0, 0, 0, 0.8)",
                 width: "100vw",
               }}
             >
@@ -78,7 +78,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                         <Typography
                           component="span"
                           variant="inherit"
-                          color="textSecondary"
+                          color="textPrimary"
                         >
                           OSOBNÍ TRENÉR
                         </Typography>
@@ -87,7 +87,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                         <TypedText
                           component="span"
                           variant="h4"
-                          color="secondary"
+                          color="primary"
                           className={classes.fontWeight900}
                           typedProps={{
                             strings: [

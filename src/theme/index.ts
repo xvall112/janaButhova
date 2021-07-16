@@ -9,6 +9,13 @@ const getTheme = mode =>
         MuiButton: {
           root: {
             borderRadius: "0px",
+            
+          },
+          outlinedPrimary:{
+            border: "3px solid"
+          },
+          outlinedSizeLarge: {
+fontWeight:"bold"
           },
         },
       },
