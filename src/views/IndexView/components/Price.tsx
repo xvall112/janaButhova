@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: "100%",
+      "& .MuiSvgIcon-root": {
+        color: theme.palette.text.primary,
+      },
     },
     according: {
       backgroundColor: theme.palette.alternate.main,
