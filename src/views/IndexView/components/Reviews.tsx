@@ -90,15 +90,7 @@ const Reviews = ({
               <CardReview
                 variant="contained"
                 text={review.feedback}
-                icon={
-                  <IconAlternate
-                    color={colors.orange}
-                    fontIconClass="fas fa-quote-right"
-                  />
-                }
                 authorName={review.authorName}
-                authorTitle={review.authorOccupation}
-                authorPhoto={review.authorPhoto}
               />
             </Box>
           </Grid>

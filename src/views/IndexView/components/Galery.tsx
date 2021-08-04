@@ -8,6 +8,13 @@ import { SectionHeader, IconAlternate } from "components/molecules"
 import { Section } from "components/organisms"
 
 const useStyles = makeStyles(theme => ({
+  videoIframe: {
+    boxShadow: `0 5px 15px 0 ${theme.palette.cardShadow}`,
+    borderRadius: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      boxShadow: "none",
+    },
+  },
   swiperWrapper: {
     display: "flex",
     alignItems: "center",
@@ -146,65 +153,21 @@ const Galery = ({
               <Grid item xs={12} sm={6}>
                 <SectionHeader title="Videa" subtitle="" fadeUp align="left" />
               </Grid>
-              {isSm && (
-                <Grid item container xs={12} sm={6} justify="flex-end">
-                  <div className={classes.swiperNavigation}>
-                    <div className="swiper-button-next"></div>
-                    <div className="swiper-button-prev"></div>
-                  </div>
-                </Grid>
-              )}
             </Grid>
           </Section>
         </Grid>
         <Grid item container xs={12}>
-          <div className="swiper-container">
-            <div className={clsx("swiper-wrapper", classes.swiperWrapper)}>
-              <Swiper
-                slidesPerView={isMd ? 3 : 1.5}
-                spaceBetween={isMd ? 0 : 16}
-                centeredSlides={isMd ? true : false}
-              >
-                {data.map((item: any, index: number) => (
-                  <SwiperSlide>
-                    <div
-                      className={clsx("swiper-slide", classes.swiperSlide)}
-                      key={index}
-                    >
-                      <Image
-                        {...item}
-                        className={classes.image}
-                        lazyProps={{ width: "100%", height: "100%" }}
-                      />
-                      <IconAlternate
-                        size="medium"
-                        shape="circle"
-                        fontIconClass="fas fa-play"
-                        color={colors.indigo}
-                        className={clsx(
-                          "swiper-play-button",
-                          classes.playButton
-                        )}
-                      />
-                      <div className={classes.coverContainer}>
-                        <div className={clsx(classes.cover, "image-cover")} />
-                        <Typography
-                          variant="h6"
-                          className={clsx(
-                            "swiper-text",
-                            classes.textWhite,
-                            classes.textPadding
-                          )}
-                        >
-                          A Guide To Rocky Mountain Vacations
-                        </Typography>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </div>
+          <Grid item xs={12} md={6} data-aos={"fade-up"}>
+            <iframe
+              className={classes.videoIframe}
+              title="video"
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/ClIbn_IF31U"
+              frameBorder="0"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+            />
+          </Grid>
         </Grid>
       </Grid>
     </div>

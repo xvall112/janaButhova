@@ -7,7 +7,8 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.alternate.main,
   },
   roott: {
-    background: theme.palette.primary.main,
+    background:
+      " linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(254,221,88,0.7968137938769257) 100%)",
   },
   inner: {
     maxWidth: theme.layout.contentWidth,

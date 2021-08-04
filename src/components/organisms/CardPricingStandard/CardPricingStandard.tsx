@@ -1,18 +1,19 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, ListItem, Divider, List, Grid } from '@material-ui/core';
-import { CardBase } from 'components/organisms';
+import React from "react"
+import clsx from "clsx"
+import { makeStyles } from "@material-ui/core/styles"
+import { Typography, ListItem, Divider, List, Grid } from "@material-ui/core"
+import { CardBase } from "components/organisms"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100%',
-    width: '100%',
+    height: "100%",
+    width: "100%",
+    backgroundColor: "#000000",
   },
   featureCheck: {
     marginRight: theme.spacing(1),
   },
-}));
+}))
 
 /**
  * Component to display the job card
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 const CardPricingStandard = ({
   title,
   subtitle,
-  priceComponent,
+
   featureCheckComponent,
   features,
   cta,
@@ -34,11 +35,11 @@ const CardPricingStandard = ({
   featureTitleProps = {},
   ...rest
 }: CardPricingStandardProps): JSX.Element => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <CardBase
-      className={clsx('card-pricing-standard', classes.root, className)}
+      className={clsx("card-pricing-standard", classes.root, className)}
       align="left"
       {...rest}
     >
@@ -66,9 +67,7 @@ const CardPricingStandard = ({
         <Grid item xs={12} className="card-pricing-standard__divider-container">
           <Divider className="card-pricing-standard__divider" />
         </Grid>
-        <Grid item xs={12} className="card-pricing-standard__content">
-          {priceComponent}
-        </Grid>
+
         {features && (
           <Grid item xs={12} className="card-pricing-standard__feature-wrapper">
             <List className="card-pricing-standard__feature-list">
@@ -81,8 +80,8 @@ const CardPricingStandard = ({
                   {featureCheckComponent && (
                     <div
                       className={clsx(
-                        'card-pricing-standard__feature-check',
-                        classes.featureCheck,
+                        "card-pricing-standard__feature-check",
+                        classes.featureCheck
                       )}
                     >
                       {featureCheckComponent}
@@ -123,7 +122,7 @@ const CardPricingStandard = ({
         )}
       </Grid>
     </CardBase>
-  );
-};
+  )
+}
 
-export default CardPricingStandard;
+export default CardPricingStandard

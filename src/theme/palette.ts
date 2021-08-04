@@ -3,7 +3,7 @@ import { PaletteType } from "@material-ui/core"
 
 export const light = {
   alternate: {
-    main: "#171717",
+    main: "#000000",
     dark: "rgb(247, 249, 250)",
   },
   cardShadow: "rgba(23, 70, 161, .11)",
@@ -13,20 +13,20 @@ export const light = {
   },
   type: "light" as PaletteType,
   primary: {
-    main: "#FDCB00",
+    main: "#ffdf58",
     light: "#FFEC9E",
     dark: "#FDCB00",
-    contrastText: "#fff",
+    contrastText: "#000000",
   },
   secondary: {
     light: "#ffb74d",
-    main: "#f9b934",
+    main: "#000000",
     dark: "#f57c00",
     contrastText: "rgba(0, 0, 0, 0.87)",
   },
   text: {
-    primary: "#EEEEEF",
-    secondary: "#AEB0B4",
+    primary: "#FFF",
+    secondary: "#EEEEEF",
   },
   divider: "rgba(0, 0, 0, 0.12)",
   background: {

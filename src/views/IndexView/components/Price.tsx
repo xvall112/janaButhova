@@ -1,173 +1,67 @@
 import React from "react"
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles"
-import Accordion from "@material-ui/core/Accordion"
-import { AccordionDetails, Grid } from "@material-ui/core"
-import AccordionSummary from "@material-ui/core/AccordionSummary"
-import Typography from "@material-ui/core/Typography"
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import clsx from "clsx"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { useMediaQuery, Grid, Typography, Box } from "@material-ui/core"
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: "100%",
-      "& .MuiSvgIcon-root": {
-        color: theme.palette.text.primary,
-      },
-    },
-    according: {
-      backgroundColor: theme.palette.alternate.main,
-    },
-    heading: {
-      flexShrink: 0,
-      color: theme.palette.text.primary,
-      fontSize: "16px",
-      fontWeight: "bold",
-    },
-    secondaryHeading: {
-      color: theme.palette.primary.main,
-      float: "right",
-      fontWeight: "bold",
-      fontSize: "18px",
-    },
-  })
-)
+import { CardBasePrice, CardBase } from "components/organisms"
 
-const Price = ({ pricePersonal, priceGroup, pricePoradenstvi }) => {
+const useStyles = makeStyles(theme => ({
+  cardTreninky: {
+    backgroundColor: theme.palette.primary.main,
+  },
+}))
+
+const Price = ({ data, treninkData, className, ...rest }) => {
   const classes = useStyles()
-  const [expanded, setExpanded] = React.useState<string | false>(false)
-
-  const handleChange = (panel: string) => (
-    event: React.ChangeEvent<{}>,
-    isExpanded: boolean
-  ) => {
-    setExpanded(isExpanded ? panel : false)
-  }
+  const theme = useTheme()
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+    defaultMatches: true,
+  })
 
   return (
-    <div className={classes.root} id="price">
-      <h2>Skupinové</h2>
-      {priceGroup.map((item, index) => {
-        return (
-          <Accordion
-            key={index}
-            expanded={expanded === item.id}
-            onChange={handleChange(item.id)}
-            className={classes.according}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1bh-content"
-              id="panel1bh-header"
-            >
-              <>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  spacing={3}
-                >
-                  <Grid item xs={8}>
-                    <Typography className={classes.heading} variant="button">
+    <div className={clsx(className)} {...rest}>
+      <Grid container spacing={2}>
+        {data.map((item: any, index: number) => {
+          return (
+            <Grid item xs={12} md={4} data-aos="fade-up" key={index}>
+              <CardBasePrice
+                liftUp
+                noBorder
+                title={item.title}
+                buttonText={item.button}
+                data={item.features}
+              />
+            </Grid>
+          )
+        })}
+        <Grid item xs={12} md={4}>
+          <CardBase align="left" className={classes.cardTreninky}>
+            <>
+              <Typography variant="h4" color="secondary">
+                Tréninky
+              </Typography>
+              {treninkData.map((item, index) => {
+                return (
+                  <Box key={index} mt={2}>
+                    <Typography variant="h5" color="secondary">
                       {item.title}
                     </Typography>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <Typography className={classes.secondaryHeading}>
-                      {item.price} Kč
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{item.description} </Typography>
-            </AccordionDetails>
-          </Accordion>
-        )
-      })}
-      <h2>Osobní</h2>
-      {pricePersonal.map((item, index) => {
-        return (
-          <Accordion
-            className={classes.according}
-            key={index}
-            expanded={expanded === item.id}
-            onChange={handleChange(item.id)}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1bh-content"
-              id="panel1bh-header"
-            >
-              <>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  spacing={3}
-                >
-                  <Grid item xs={8}>
-                    <Typography className={classes.heading} variant="button">
-                      {item.title}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <Typography className={classes.secondaryHeading}>
-                      {item.price} Kč
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{item.description} </Typography>
-            </AccordionDetails>
-          </Accordion>
-        )
-      })}
-      <h2>Poradenství</h2>
-      {pricePoradenstvi.map((item, index) => {
-        return (
-          <Accordion
-            className={classes.according}
-            key={index}
-            expanded={expanded === item.id}
-            onChange={handleChange(item.id)}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1bh-content"
-              id="panel1bh-header"
-            >
-              <>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  spacing={3}
-                >
-                  <Grid item xs={8}>
-                    <Typography className={classes.heading} variant="button">
-                      {item.title}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <Typography className={classes.secondaryHeading}>
-                      {item.price} Kč
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{item.description} </Typography>
-            </AccordionDetails>
-          </Accordion>
-        )
-      })}
+                    {item.days.map((item, index) => {
+                      return (
+                        <Box key={index}>
+                          <Typography variant="body1" color="secondary">
+                            {item}
+                          </Typography>
+                        </Box>
+                      )
+                    })}
+                  </Box>
+                )
+              })}
+            </>
+          </CardBase>
+        </Grid>
+      </Grid>
     </div>
   )
 }

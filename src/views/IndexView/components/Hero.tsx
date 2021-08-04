@@ -1,5 +1,9 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import { SectionHeader, TypedText } from "components/molecules"
+import scrollTo from "gatsby-plugin-smoothscroll"
+
+//materialUi
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import {
   useMediaQuery,
@@ -10,14 +14,17 @@ import {
   Hidden,
 } from "@material-ui/core"
 import { Image } from "components/atoms"
-import { SectionHeader, TypedText } from "components/molecules"
-import scrollTo from "gatsby-plugin-smoothscroll"
+
+import Section from "components/organisms/Section/Section"
 
 const useStyles = makeStyles(theme => ({
   root: {
     height: "80vh",
   },
-
+  sectionNoPaddingY: {
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
   image: {
     [theme.breakpoints.down("sm")]: {
       maxWidth: 500,
@@ -41,53 +48,48 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 
   return (
     <>
-      <Box pt={isMd ? 10 : 0} {...rest} id="hero">
-        <Hidden smUp>
-          <div style={{ display: "grid" }}>
-            <div
-              style={{
-                // By using the same grid area for both, they are stacked on top of each other
-                gridArea: "1/1",
-                position: "relative",
-                height: "90vh",
-                zIndex: 100,
-                // This centers the other elements inside the hero component
-                display: "grid",
-                backgroundColor: "rgba(0, 0, 0, 0.8)",
-                width: "100vw",
-              }}
-            >
+      <Box {...rest} id="hero">
+        <div style={{ display: "grid" }}>
+          <div
+            style={{
+              // By using the same grid area for both, they are stacked on top of each other
+              gridArea: "1/1",
+              position: "relative",
+              height: "90vh",
+              zIndex: 100,
+              // This centers the other elements inside the hero component
+              display: "grid",
+              background:
+                "radial-gradient(circle, rgba(50,50,50,0.2) 0%, rgba(0,0,0,0.8998949921765581) 100%)",
+              width: "100vw",
+            }}
+          >
+            <Section className={classes.sectionNoPaddingY}>
               <Grid
                 container
                 justify="space-between"
                 alignItems="center"
                 className={classes.root}
               >
-                <Grid item xs={12} md={5} data-aos={"fade-up"}>
+                <Grid item xs={12} md={6} data-aos={"fade-up"}>
+                  <Typography component="span" variant="h5" color="textPrimary">
+                    <Box fontWeight="bold">FUNKČNÍ & OSOBNÍ TRENÉR</Box>
+                  </Typography>
                   <SectionHeader
                     title={
                       <span>
                         <Typography
                           component="span"
-                          variant="inherit"
+                          variant="h2"
                           color="primary"
                         >
-                          JANA BÚTHOVÁ
-                        </Typography>
-                        <br />
-                        <Typography
-                          component="span"
-                          variant="inherit"
-                          color="textPrimary"
-                        >
-                          OSOBNÍ TRENÉR
+                          <Box fontWeight="900">JANA BÚTHOVÁ</Box>
                         </Typography>
 
-                        <br />
                         <TypedText
                           component="span"
                           variant="h4"
-                          color="primary"
+                          color="textPrimary"
                           className={classes.fontWeight900}
                           typedProps={{
                             strings: [
@@ -127,113 +129,21 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                   />
                 </Grid>
               </Grid>
-            </div>
-            <StaticImage
-              src="../../../assets/images/uvodniUpravena.png"
-              alt="obrazek"
-              style={{
-                gridArea: "1/1",
-                height: "90vh",
-                width: "100vw",
-                zIndex: 1,
-                // You can set a maximum height for the image, if you wish.
-                // maxHeight: 600,
-              }}
-            />
+            </Section>
           </div>
-        </Hidden>
-
-        <Hidden smDown>
-          <Grid
-            container
-            justify="space-between"
-            alignItems="center"
-            spacing={isMd ? 4 : 2}
-            className={classes.root}
-          >
-            <Grid item xs={12} md={5} data-aos={"fade-up"}>
-              <SectionHeader
-                title={
-                  <span>
-                    <Typography
-                      component="span"
-                      variant="inherit"
-                      color="primary"
-                    >
-                      JANA BÚTHOVÁ
-                    </Typography>
-                    <br />
-                    <Typography
-                      component="span"
-                      variant="inherit"
-                      color="textSecondary"
-                    >
-                      OSOBNÍ TRENÉR
-                    </Typography>
-
-                    <br />
-                    <TypedText
-                      component="span"
-                      variant="h4"
-                      color="secondary"
-                      className={classes.fontWeight900}
-                      typedProps={{
-                        strings: [
-                          "OSOBNÍ TRÉNINKY",
-                          "SKUPINOVÉ TRÉNINKY",
-                          "VÝŽIVOVÉ PORADENSTVÍ",
-                          "TRÉNINKOVÉ PLÁNY",
-                        ],
-                        typeSpeed: 50,
-                        loop: true,
-                      }}
-                    />
-                  </span>
-                }
-                subtitle="„CHCI INSPIROVAT LIDI. CHCI, ABY SE NA MNĚ PODÍVALI A ŘEKLI: „KVŮLI TOBĚ JSEM TO NEVZDAL!“"
-                ctaGroup={[
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    onClick={() => scrollTo("#training")}
-                  >
-                    pojď trénovat!
-                  </Button>,
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    size="large"
-                    onClick={() => scrollTo("#aboutMe")}
-                  >
-                    o mně
-                  </Button>,
-                ]}
-                align={isMd ? "left" : "center"}
-                disableGutter
-                titleVariant="h3"
-              />
-            </Grid>
-            <Hidden smDown>
-              <Grid
-                item
-                container
-                justify="center"
-                alignItems="center"
-                xs={12}
-                md={7}
-                data-aos={"fade-up"}
-                className={classes.img}
-              >
-                <StaticImage
-                  src="../../../assets/images/uvodniUpravena2.png"
-                  alt="uvodni fotka"
-                  className={classes.image}
-                />
-              </Grid>
-            </Hidden>
-          </Grid>
-        </Hidden>
+          <StaticImage
+            src="../../../assets/images/uvodniDesktop.jpg"
+            alt="obrazek"
+            style={{
+              gridArea: "1/1",
+              height: "90vh",
+              width: "100vw",
+              zIndex: 1,
+              // You can set a maximum height for the image, if you wish.
+              // maxHeight: 600,
+            }}
+          />
+        </div>
       </Box>
     </>
   )

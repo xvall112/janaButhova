@@ -11,12 +11,16 @@ import {
   ListItemText,
 } from "@material-ui/core"
 import { CardBase } from "components/organisms"
+import FormatQuoteIcon from "@material-ui/icons/FormatQuote"
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.alternate.main,
     height: "100%",
     width: "100%",
+  },
+  iconSize: {
+    fontSize: "5rem",
   },
 }))
 
@@ -68,7 +72,7 @@ const CardReview = ({
           xs={12}
           className="card-review__icon-wrapper"
         >
-          {icon}
+          <FormatQuoteIcon className={classes.iconSize} color="primary" />
         </Grid>
         <Grid item xs={12} className="card-review__text-wrapper">
           <Typography

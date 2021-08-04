@@ -2,51 +2,8 @@ import InstagramIcon from "@material-ui/icons/Instagram"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
 import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined"
-
-export const promo = [
-  {
-    src:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place1.jpg",
-    srcSet:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place1@2x.jpg 2x",
-    alt: "...",
-  },
-  {
-    src:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place2.jpg",
-    srcSet:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place2@2x.jpg 2x",
-    alt: "...",
-  },
-  {
-    src:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place3.jpg",
-    srcSet:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place3@2x.jpg 2x",
-    alt: "...",
-  },
-  {
-    src:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place1.jpg",
-    srcSet:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place1@2x.jpg 2x",
-    alt: "...",
-  },
-  {
-    src:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place2.jpg",
-    srcSet:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place2@2x.jpg 2x",
-    alt: "...",
-  },
-  {
-    src:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place3.jpg",
-    srcSet:
-      "https://assets.maccarianagency.com/the-front/photos/coworking/place3@2x.jpg 2x",
-    alt: "...",
-  },
-]
+import YouTubeIcon from "@material-ui/icons/YouTube"
+import { MinimizeOutlined } from "@material-ui/icons"
 
 export const training = [
   {
@@ -93,7 +50,7 @@ export const navigation = [
   { title: "nebízím", slug: "#training" },
   { title: "ceník", slug: "#price" },
   { title: "recenze", slug: "#review" },
-  { title: "recepty", slug: "#recepy" },
+
   { title: "kontakt", slug: "#contact" },
 ]
 
@@ -178,24 +135,27 @@ export const aboutMe = [
     title: "Síla",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum fermentum tortor id mi. Etiam quis quam",
+    image: "../../../assets/images/skupinoveIndoor.jpg",
   },
   {
     icon: "fas fa-stopwatch",
     title: "Vytrvalost",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum fermentum tortor id mi. Etiam quis quam.",
+    image: "../../../assets/images/skupinoveIndoor.jpg",
   },
-  {
+  /*  {
     icon: "fas fa-running",
     title: "Rychlost",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum fermentum tortor id mi. Etiam quis quam. ",
-  },
+  }, */
   {
     icon: "fab fa-react",
-    title: "Dynamika",
+    title: "Flexibilita",
     description:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum fermentum tortor id mi. Etiam quis quam.",
+    image: "../../../assets/images/skupinoveIndoor.jpg",
   },
 ]
 export const contact = {
@@ -282,4 +242,77 @@ export const pricePoradenstvi = [
     price: 2390,
     id: 11,
   },
+]
+
+export const pricings = [
+  {
+    title: "OSOBNÍ TRÉNINK",
+    features: [
+      {
+        title: "1 KLIENT",
+        price: [
+          { titlePrice: "60 minut", cost: 500 },
+          { titlePrice: "90 minut", cost: 550 },
+          { titlePrice: "120 minut", cost: 650 },
+        ],
+      },
+      {
+        title: "2 KLIENTI (malá skupina)",
+        price: [{ titlePrice: "60 minut", cost: 900 }],
+      },
+    ],
+    button: "chci trénovat",
+  },
+
+  {
+    title: "SKUPINOVÝ TRÉNINK",
+    subtitle: "Tréninky probíhají v Dolních Hbitech",
+    features: [
+      {
+        title: "OUTDOOR",
+        price: [
+          { titlePrice: "60 minut", cost: 100 },
+          { titlePrice: "10 + 1 vstup", cost: 1000 },
+        ],
+      },
+      {
+        title: "INDOOR",
+        price: [
+          { titlePrice: "60 minut", cost: 500 },
+          { titlePrice: "10 + 1 vstup", cost: 1000 },
+        ],
+      },
+    ],
+    button: "chci trénovat",
+  },
+
+  {
+    title: "PORADENSTVÍ",
+    features: [
+      {
+        title: "DIAGNOSTIKA",
+        price: [
+          {
+            titlePrice: `vstupní pohovor + diagnostika pohybového aparátu + svalové testy`,
+            cost: 1100,
+          },
+          { titlePrice: "Sestavení tréninkového plánu", cost: 500 },
+        ],
+      },
+      {
+        title: "VÝŽIVOVÉ PORADENSTVÍ",
+        price: [
+          { titlePrice: "vstupní konzultace + vážení", cost: 490 },
+          { titlePrice: "kontrolní konzultace", cost: 290 },
+          { titlePrice: "stravovací plán na 14dní ", cost: 2390 },
+        ],
+      },
+    ],
+    button: "mám zájem",
+  },
+]
+
+export const TreninkTime = [
+  { title: "Indoor", days: ["ÚT: 17:15 - 18:15", " ČT: 17:15 - 18:15 "] },
+  { title: "Outoor", days: ["ÚT: 17:15 - 18:15", " ČT: 17:15 - 18:15 "] },
 ]

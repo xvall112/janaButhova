@@ -5,7 +5,7 @@ import { makeStyles, Divider } from "@material-ui/core"
 //components
 import { Hidden } from "@material-ui/core"
 import Hero from "./components/Hero"
-import FourPictures from "./components/FoutPictures"
+import HeroMobile from "./components/HeroMobile"
 import AboutMe from "./components/AboutMe"
 import Training from "./components/Training"
 import Price from "./components/Price"
@@ -17,12 +17,10 @@ import Section from "../../components/organisms/Section/Section"
 import SectionAlternate from "../../components/organisms/SectionAlternate/SectionAlternate"
 import {
   promo,
-  training,
-  pricePersonal,
-  priceGroup,
-  pricePoradenstvi,
+  pricings,
   aboutMe,
   reviews,
+  TreninkTime,
 } from "./components/data"
 
 const query = graphql`
@@ -68,29 +66,23 @@ const IndexPage = () => {
   return (
     <div>
       <Hidden smDown>
-        <Section className={classes.sectionNoPaddingY}>
-          <Hero />
-        </Section>
-      </Hidden>
-      <Hidden smUp>
         <Hero />
       </Hidden>
-      <FourPictures />
+      <Hidden smUp>
+        <HeroMobile />
+      </Hidden>
+
       <SectionAlternate>
         <AboutMe data={aboutMe} />
       </SectionAlternate>
       <Training data={data} />
-      <SectionAlternate primary>
-        <Price
-          pricePersonal={pricePersonal}
-          priceGroup={priceGroup}
-          pricePoradenstvi={pricePoradenstvi}
-        />
+      <SectionAlternate primary id="price">
+        <Price data={pricings} treninkData={TreninkTime} />
       </SectionAlternate>
       <section className={classes.promoSection}>
         <Galery data={promo} />
       </section>
-      <Section>
+      <Section id="review">
         <Reviews data={reviews} />
       </Section>
       {/* <Section className={classes.sectionNoPaddingTop}>

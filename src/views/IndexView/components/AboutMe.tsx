@@ -56,7 +56,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
                     variant="inherit"
                     color="primary"
                   >
-                    ALE SÍLA A VYTRVALOST
+                    ALE SÍLA A VYTRVALOST V USPĚCHANÉ DOBĚ
                   </Typography>
                 </span>
               }
@@ -123,31 +123,60 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
           data-aos={"fade-up"}
         >
           <StaticImage
-            src="../../../assets/images/IMG-20210627-WA0025.jpg"
+            src="../../../assets/images/aboutMe.jpg"
             alt="Jana Buthova"
             placeholder="blurred"
             layout="fixed"
-            width={400}
-            height={500}
+            width={300}
           />
         </Grid>
       </Grid>
       <Box mt={4}>
         <Grid container spacing={4}>
           {data.map((item: any, index: number) => (
-            <Grid key={index} item xs={12} sm={6} md={3} data-aos="fade-up">
-              <DescriptionListIcon
-                align="left"
-                title={item.title}
-                subtitle={item.description}
-                icon={
-                  <Icon
-                    fontIconClass={item.icon}
-                    size="medium"
-                    fontIconColor={theme.palette.primary.main}
+            <Grid key={index} item xs={12} sm={6} md={4} data-aos="fade-up">
+              <div style={{ display: "grid" }}>
+                <div
+                  style={{
+                    // By using the same grid area for both, they are stacked on top of each other
+                    gridArea: "1/1",
+                    position: "relative",
+                    height: "auto",
+                    zIndex: 100,
+                    // This centers the other elements inside the hero component
+                    display: "grid",
+                    background:
+                      "radial-gradient(circle, rgba(50,50,50,0.2) 0%, rgba(0,0,0,0.8998949921765581) 100%)",
+                    width: "100%",
+                    padding: "20px",
+                  }}
+                >
+                  <DescriptionListIcon
+                    align="left"
+                    title={item.title}
+                    subtitle={item.description}
+                    icon={
+                      <Icon
+                        fontIconClass={item.icon}
+                        size="large"
+                        fontIconColor={theme.palette.primary.main}
+                      />
+                    }
                   />
-                }
-              />
+                </div>
+                <StaticImage
+                  src="../../../assets/images/flexibilita.jpg"
+                  alt="obrazek"
+                  style={{
+                    gridArea: "1/1",
+                    height: "100%",
+                    width: "100%",
+                    zIndex: 1,
+                    // You can set a maximum height for the image, if you wish.
+                    // maxHeight: 600,
+                  }}
+                />
+              </div>
             </Grid>
           ))}
         </Grid>

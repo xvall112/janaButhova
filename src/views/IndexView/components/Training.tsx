@@ -16,6 +16,14 @@ const useStyles = makeStyles(theme => ({
       color: "white",
       textDecoration: "none",
     },
+
+    "& :hover": {
+      "& img": {
+        transition:
+          "transform .5s 1s ease-in-out,-webkit-transform .5s ease-in-out",
+        transform: "scale(1.1)",
+      },
+    },
   },
 }))
 
@@ -59,15 +67,6 @@ const Training = ({ data }) => {
                           {item.title}
                         </Box>
 
-                        {/*    <Box
-          fontSize={70}
-          fontWeight="fontWeightBold"
-          textAlign="center"
-          letterSpacing={5}
-        >
-          title
-        </Box> */}
-
                         <Box fontSize={18} textAlign="center">
                           {item.shortDescription}
                         </Box>
@@ -95,6 +94,7 @@ const Training = ({ data }) => {
                     </Box>
                   </div>
                   <GatsbyImage
+                    className={classes.img}
                     image={item.obrazek.gatsbyImageData}
                     alt={item.title}
                     style={{

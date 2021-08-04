@@ -30,6 +30,7 @@ import InstagramIcon from "@material-ui/icons/Instagram"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
 import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined"
+import YouTubeIcon from "@material-ui/icons/YouTube"
 
 export const query = graphql`
   {
@@ -107,27 +108,32 @@ const TopBar = ({ openSideBar }): JSX.Element => {
               </Grid>
             </Hidden>
             <Grid item>
-              <IconButton aria-label="instagram" color="primary">
-                <InstagramIcon />
-              </IconButton>
-              <IconButton aria-label="facebook" color="primary">
-                <FacebookIcon />
-              </IconButton>
-              <IconButton aria-label="email" color="primary">
-                <EmailOutlinedIcon />
-              </IconButton>
-              <IconButton aria-label="phone" color="primary">
-                <PhoneOutlinedIcon />
-              </IconButton>
+              <Hidden smDown>
+                <IconButton aria-label="instagram" color="primary">
+                  <InstagramIcon />
+                </IconButton>
+                <IconButton aria-label="facebook" color="primary">
+                  <FacebookIcon />
+                </IconButton>
+                <IconButton aria-label="facebook" color="primary">
+                  <YouTubeIcon />
+                </IconButton>
+                <IconButton aria-label="email" color="primary">
+                  <EmailOutlinedIcon />
+                </IconButton>
+                <IconButton aria-label="phone" color="primary">
+                  <PhoneOutlinedIcon />
+                </IconButton>
+              </Hidden>
               <Hidden smUp>
                 <IconButton
-                  aria-label="phone"
+                  aria-label="menu"
                   color="primary"
                   onClick={() => {
                     openSideBar()
                   }}
                 >
-                  <MenuIcon />
+                  <MenuIcon fontSize="large" />
                 </IconButton>
               </Hidden>
             </Grid>

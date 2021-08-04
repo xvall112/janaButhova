@@ -7,16 +7,7 @@ const getTheme = mode =>
       palette: mode === "light" ? light : dark,
       overrides: {
         MuiButton: {
-          root: {
-            borderRadius: "0px",
-            
-          },
-          outlinedPrimary:{
-            border: "3px solid"
-          },
-          outlinedSizeLarge: {
-fontWeight:"bold"
-          },
+          root: {},
         },
       },
       layout: {
