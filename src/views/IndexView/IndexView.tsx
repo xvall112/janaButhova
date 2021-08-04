@@ -5,18 +5,17 @@ import { makeStyles, Divider } from "@material-ui/core"
 //components
 import { Hidden } from "@material-ui/core"
 import Hero from "./components/Hero"
-import HeroMobile from "./components/HeroMobile"
+
 import AboutMe from "./components/AboutMe"
 import Training from "./components/Training"
 import Price from "./components/Price"
 import Galery from "./components/Galery"
 import Reviews from "./components/Reviews"
-import Recepy from "./components/Recepy"
-import Contact from "./components/Contact"
+
 import Section from "../../components/organisms/Section/Section"
 import SectionAlternate from "../../components/organisms/SectionAlternate/SectionAlternate"
 import {
-  promo,
+  video,
   pricings,
   aboutMe,
   reviews,
@@ -65,13 +64,7 @@ const IndexPage = () => {
   const classes = useStyles()
   return (
     <div>
-      <Hidden smDown>
-        <Hero />
-      </Hidden>
-      <Hidden smUp>
-        <HeroMobile />
-      </Hidden>
-
+      <Hero />
       <SectionAlternate>
         <AboutMe data={aboutMe} />
       </SectionAlternate>
@@ -80,17 +73,11 @@ const IndexPage = () => {
         <Price data={pricings} treninkData={TreninkTime} />
       </SectionAlternate>
       <section className={classes.promoSection}>
-        <Galery data={promo} />
+        <Galery data={video} />
       </section>
       <Section id="review">
         <Reviews data={reviews} />
       </Section>
-      {/* <Section className={classes.sectionNoPaddingTop}>
-        <Recepy />
-      </Section> */}
-      <SectionAlternate className={classes.sectionNoPaddingTop}>
-        <Contact />
-      </SectionAlternate>
     </div>
   )
 }

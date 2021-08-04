@@ -5,6 +5,12 @@ import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined"
 import YouTubeIcon from "@material-ui/icons/YouTube"
 import { MinimizeOutlined } from "@material-ui/icons"
 
+export const video = [
+  "https://www.youtube.com/embed/ClIbn_IF31U",
+  "https://www.youtube.com/embed/ClIbn_IF31U",
+  "https://www.youtube.com/embed/ClIbn_IF31U",
+  "https://www.youtube.com/embed/ClIbn_IF31U",
+]
 export const training = [
   {
     title: "skupinové outdoor",
@@ -164,85 +170,6 @@ export const contact = {
   mobile: "703 681 841",
   facebook: "facebook",
 }
-
-export const priceGroup = [
-  {
-    title: "skupinové outdoor & indoor lekce - 1hodina",
-    description: "description",
-    price: 100,
-    id: 1,
-  },
-  {
-    title: "pernamentka 10 + 1 vstup zdarma",
-    description: "description",
-    price: 1000,
-    id: 2,
-  },
-]
-export const pricePersonal = [
-  {
-    title: "osobní trénink jednotlivec - 1 hodina",
-    description: "description",
-    price: 500,
-    id: 5,
-  },
-  {
-    title: "osobní trénink jednotlivec - 1,5 hodiny",
-    description: "description",
-    price: 550,
-    id: 6,
-  },
-  {
-    title: "osobní trénink jednotlivec - 2 hodiny",
-    description: "description",
-    price: 650,
-    id: 12,
-  },
-  {
-    title: "osobní trénink - 2 klienti - 1 hodina",
-    description: "description",
-    price: 900,
-    id: 7,
-  },
-  {
-    title: "osobní outdoor trenink - 1,5 hodiny",
-    description: "description",
-    price: 550,
-    id: 8,
-  },
-]
-export const pricePoradenstvi = [
-  {
-    title: "vstupní pohovor + diagnostika pohybového aparátu + svalové testy",
-    description: "description",
-    price: 1100,
-    id: 3,
-  },
-  {
-    title: "sestavení tréninkového plánu dle diagnostiky",
-    description: "description",
-    price: 500,
-    id: 4,
-  },
-  {
-    title: "výživové poradenství - vstupní konzultace + vážení",
-    description: "description",
-    price: 490,
-    id: 9,
-  },
-  {
-    title: "výživové poradenství - kontrolní konzultace",
-    description: "description",
-    price: 290,
-    id: 10,
-  },
-  {
-    title: "sestavení stravovacího plánu na 14dní",
-    description: "description",
-    price: 2390,
-    id: 11,
-  },
-]
 
 export const pricings = [
   {

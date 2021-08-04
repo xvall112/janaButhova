@@ -29,9 +29,6 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
     backgroundColor: theme.palette.alternate.main,
     zIndex: 10000,
-    [theme.breakpoints.up("md")]: {
-      width: 400,
-    },
   },
   root: {
     "& a": { textDecoration: "none", paddingTop: theme.spacing(2) },

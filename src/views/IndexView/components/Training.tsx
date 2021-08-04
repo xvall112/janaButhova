@@ -78,7 +78,7 @@ const Training = ({ data }) => {
                           size="large"
                           onClick={() => navigate(`/${item.slug}`)}
                         >
-                          vice
+                          více
                         </Button>
                       </Box>
                     </Grid>
@@ -94,7 +94,6 @@ const Training = ({ data }) => {
                     </Box>
                   </div>
                   <GatsbyImage
-                    className={classes.img}
                     image={item.obrazek.gatsbyImageData}
                     alt={item.title}
                     style={{

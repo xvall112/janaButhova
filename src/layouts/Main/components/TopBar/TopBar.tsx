@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import scrollTo from "gatsby-plugin-smoothscroll"
 //data
 import { navigation } from "../../../../views/IndexView/components/data"
@@ -73,7 +73,7 @@ const TopBar = ({ openSideBar }): JSX.Element => {
   const data = useStaticQuery(query)
   return (
     <header>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="absolute" color="transparent">
         <Toolbar className={classes.toolbar}>
           <Grid
             container
@@ -107,8 +107,9 @@ const TopBar = ({ openSideBar }): JSX.Element => {
                 </Grid>
               </Grid>
             </Hidden>
-            <Grid item>
-              <Hidden smDown>
+            <Hidden smUp>
+              <Grid item xs={2}>
+                {/*  <Hidden smDown>
                 <IconButton aria-label="instagram" color="primary">
                   <InstagramIcon />
                 </IconButton>
@@ -124,8 +125,8 @@ const TopBar = ({ openSideBar }): JSX.Element => {
                 <IconButton aria-label="phone" color="primary">
                   <PhoneOutlinedIcon />
                 </IconButton>
-              </Hidden>
-              <Hidden smUp>
+              </Hidden> */}
+
                 <IconButton
                   aria-label="menu"
                   color="primary"
@@ -135,8 +136,8 @@ const TopBar = ({ openSideBar }): JSX.Element => {
                 >
                   <MenuIcon fontSize="large" />
                 </IconButton>
-              </Hidden>
-            </Grid>
+              </Grid>
+            </Hidden>
           </Grid>
         </Toolbar>
       </AppBar>

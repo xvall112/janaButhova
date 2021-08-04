@@ -13,31 +13,19 @@ import { Image } from "components/atoms"
 import { SectionHeader, IconAlternate } from "components/molecules"
 import { CardReview } from "components/organisms"
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", right: 20 }}
-      onClick={onClick}
-    />
-  )
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", left: 20, zIndex: 10 }}
-      onClick={onClick}
-    />
-  )
-}
-
 const useStyles = makeStyles(() => ({
   sectionHeadlineStars: {
     maxWidth: 120,
+  },
+  root: {
+    position: "relative",
+    height: "100%",
+    width: "100%",
+    /* "& svg": {
+      position: "absolute",
+      margin: "auto 0",
+      bottom: "-50px",
+    }, */
   },
 }))
 
@@ -73,7 +61,11 @@ const Reviews = ({
   }
 
   return (
-    <div className={className} {...rest}>
+    <div className={classes.root}>
+      {/* <svg width="450px" height="450px" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" width="100%" height="100%" rx="1" fill="#ffdf58" />
+      </svg> */}
+
       <Slider {...settings}>
         {data.map((review: any, index: number) => (
           <Grid

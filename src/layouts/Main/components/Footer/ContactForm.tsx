@@ -7,20 +7,10 @@ import cogoToast from "cogo-toast"
 import {
   useMediaQuery,
   Grid,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
   Typography,
-  Avatar,
   TextField,
   Button,
 } from "@material-ui/core"
-import PhoneIcon from "@material-ui/icons/Phone"
-import MailOutlineIcon from "@material-ui/icons/MailOutline"
-import InstagramIcon from "@material-ui/icons/Instagram"
-import FacebookIcon from "@material-ui/icons/Facebook"
-import { contact } from "./data"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,33 +23,8 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 0,
     },
   },
-  list: {
-    display: "flex",
-    flexDirection: "column",
-    [theme.breakpoints.up("md")]: {
-      flexDirection: "row",
-    },
-  },
-  listItemText: {
-    display: "flex",
-    flexDirection: "column",
-    flex: "0 0 auto",
-  },
-  listItem: {
-    justifyContent: "flex-start",
-    [theme.breakpoints.up("md")]: {
-      justifyContent: "center",
-    },
-  },
-  avatar: {
-    backgroundColor: theme.palette.primary.main,
-  },
-  icon: {
-    background: "transparent",
-    borderRadius: 0,
-  },
+
   form: {
-    maxWidth: 550,
     margin: `0 auto`,
     marginTop: theme.spacing(5),
     [theme.breakpoints.up("md")]: {
@@ -70,6 +35,7 @@ const useStyles = makeStyles(theme => ({
     },
     "& .MuiOutlinedInput-input": {
       background: theme.palette.background.paper,
+      color: theme.palette.alternate.main,
     },
     "& .MuiOutlinedInput-notchedOutline": {
       boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.1)",
@@ -97,7 +63,7 @@ const validationSchema = yup.object({
   zprava: yup.string("Enter your email").required("Napiš zprávu"),
 })
 
-const Contact = props => {
+const ContactForm = props => {
   const { className, ...rest } = props
   const classes = useStyles()
 
@@ -134,62 +100,6 @@ const Contact = props => {
 
   return (
     <div className={classes.root} {...rest} id="contact">
-      <List disablePadding className={classes.list}>
-        <ListItem
-          disableGutters
-          data-aos="fade-up"
-          className={classes.listItem}
-        >
-          <ListItemAvatar>
-            <Avatar variant="square" className={classes.avatar}>
-              <PhoneIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <a href={`tel:${contact.mobile}`}>
-            <ListItemText
-              className={classes.listItemText}
-              primary="Telefon"
-              secondary={contact.mobile}
-              primaryTypographyProps={{
-                variant: "subtitle1",
-                color: "textSecondary",
-              }}
-              secondaryTypographyProps={{
-                variant: "subtitle1",
-                color: "textPrimary",
-                component: "span",
-              }}
-            />
-          </a>
-        </ListItem>
-
-        <ListItem
-          disableGutters
-          data-aos="fade-up"
-          className={classes.listItem}
-        >
-          <ListItemAvatar>
-            <Avatar variant="square" className={classes.avatar}>
-              <MailOutlineIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <a href={`mailto:${contact.email}`}>
-            <ListItemText
-              className={classes.listItemText}
-              primary="Email"
-              secondary={contact.email}
-              primaryTypographyProps={{
-                variant: "subtitle1",
-                color: "textSecondary",
-              }}
-              secondaryTypographyProps={{
-                variant: "subtitle1",
-                color: "textPrimary",
-              }}
-            />
-          </a>
-        </ListItem>
-      </List>
       <form
         onSubmit={formik.handleSubmit}
         data-netlify="true"
@@ -282,11 +192,4 @@ const Contact = props => {
   )
 }
 
-Contact.propTypes = {
-  /**
-   * External classes
-   */
-  className: PropTypes.string,
-}
-
-export default Contact
+export default ContactForm

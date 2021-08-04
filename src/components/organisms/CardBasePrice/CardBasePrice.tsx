@@ -123,7 +123,9 @@ const CardBasePrice = ({
             return (
               <>
                 <Box key={index} mt={3}>
-                  <Typography variant="h5">{item.title}</Typography>
+                  <Typography variant="h5">
+                    <Box fontWeight="bold">{item.title}</Box>
+                  </Typography>
                 </Box>
                 {item.price.map((item, index) => {
                   return (
@@ -143,7 +145,7 @@ const CardBasePrice = ({
                       <Grid item xs={4}>
                         <Box key={index} textAlign="right" mt={1}>
                           <Typography variant="h6" color="primary">
-                            {item.cost} Kč
+                            <Box fontWeight="bold">{item.cost} Kč</Box>
                           </Typography>
                         </Box>
                       </Grid>

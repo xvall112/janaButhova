@@ -123,7 +123,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
           data-aos={"fade-up"}
         >
           <StaticImage
-            src="../../../assets/images/aboutMe.jpg"
+            src="../../../assets/images/aboutMe.png"
             alt="Jana Buthova"
             placeholder="blurred"
             layout="fixed"
@@ -146,7 +146,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
                     // This centers the other elements inside the hero component
                     display: "grid",
                     background:
-                      "radial-gradient(circle, rgba(50,50,50,0.2) 0%, rgba(0,0,0,0.8998949921765581) 100%)",
+                      "radial-gradient(circle, rgba(0,0,0,0.4990371148459384) 0%, rgba(0,0,0,1) 77%)",
                     width: "100%",
                     padding: "20px",
                   }}

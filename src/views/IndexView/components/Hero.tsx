@@ -2,7 +2,8 @@ import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { SectionHeader, TypedText } from "components/molecules"
 import scrollTo from "gatsby-plugin-smoothscroll"
-
+//components
+import Contact from "../../../layouts/Main/components/TopBar/Contact"
 //materialUi
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import {
@@ -19,7 +20,7 @@ import Section from "components/organisms/Section/Section"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: "80vh",
+    height: "100vh",
   },
   sectionNoPaddingY: {
     paddingTop: 0,
@@ -36,6 +37,13 @@ const useStyles = makeStyles(theme => ({
   img: {
     overflow: "visible",
   },
+  subtitle: {
+    textAlign: "center",
+
+    [theme.breakpoints.up("md")]: {
+      textAlign: "left",
+    },
+  },
 }))
 
 const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
@@ -48,6 +56,17 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
 
   return (
     <>
+      <Hidden smDown>
+        <Box
+          position="absolute"
+          right="40px"
+          top="35%"
+          zIndex={1000}
+          fontSize="30px"
+        >
+          <Contact />
+        </Box>
+      </Hidden>
       <Box {...rest} id="hero">
         <div style={{ display: "grid" }}>
           <div
@@ -55,7 +74,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
               // By using the same grid area for both, they are stacked on top of each other
               gridArea: "1/1",
               position: "relative",
-              height: "90vh",
+              height: "100vh",
               zIndex: 100,
               // This centers the other elements inside the hero component
               display: "grid",
@@ -72,8 +91,15 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                 className={classes.root}
               >
                 <Grid item xs={12} md={6} data-aos={"fade-up"}>
-                  <Typography component="span" variant="h5" color="textPrimary">
-                    <Box fontWeight="bold">FUNKČNÍ & OSOBNÍ TRENÉR</Box>
+                  <Typography
+                    component="span"
+                    variant="h5"
+                    color="textPrimary"
+                    className={classes.subtitle}
+                  >
+                    <Box fontWeight="bold" mb={1}>
+                      FUNKČNÍ & OSOBNÍ TRENÉR
+                    </Box>
                   </Typography>
                   <SectionHeader
                     title={
@@ -132,11 +158,11 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
             </Section>
           </div>
           <StaticImage
-            src="../../../assets/images/uvodniDesktop.jpg"
+            src="../../../assets/images/heroImage.jpg"
             alt="obrazek"
             style={{
               gridArea: "1/1",
-              height: "90vh",
+              height: "100vh",
               width: "100vw",
               zIndex: 1,
               // You can set a maximum height for the image, if you wish.

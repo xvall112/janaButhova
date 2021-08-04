@@ -42,7 +42,7 @@ const Price = ({ data, treninkData, className, ...rest }) => {
               </Typography>
               {treninkData.map((item, index) => {
                 return (
-                  <Box key={index} mt={2}>
+                  <Box key={index} mt={2} key={index}>
                     <Typography variant="h5" color="secondary">
                       {item.title}
                     </Typography>
