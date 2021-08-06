@@ -29,10 +29,24 @@ export default function WithLayout({
   layout: Layout,
   ...rest
 }: Props): JSX.Element {
-  const classes = useStyles()
-  useEffect(() => {
-    AOS.init()
+  React.useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector("#jss-server-side")
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles)
+    }
+
+    AOS.init({
+      once: true,
+      delay: 50,
+      duration: 500,
+      easing: "ease-in-out",
+    })
   }, [])
+  const classes = useStyles()
+  /*  useEffect(() => {
+    AOS.init()
+  }, []) */
   return (
     <ThemeProvider theme={getTheme("light")}>
       <Helmet>
