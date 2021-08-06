@@ -6,13 +6,21 @@ import { useMediaQuery, Typography, Grid, Box } from "@material-ui/core"
 import { Image } from "components/atoms"
 import { SectionHeader, IconAlternate } from "components/molecules"
 import { Section } from "components/organisms"
+import ReactPlayer from "react-player/lazy"
 
 const useStyles = makeStyles(theme => ({
-  videoIframe: {
-    boxShadow: `0 5px 15px 0 ${theme.palette.cardShadow}`,
-    borderRadius: theme.spacing(1),
-    [theme.breakpoints.down("sm")]: {
-      boxShadow: "none",
+  root: {
+    "& .slick-dots li.slick-active button:before": {
+      color: theme.palette.primary.main,
+      fontSize: "12px",
+    },
+    "& .slick-dots li button:before": {
+      color: theme.palette.primary.main,
+      fontSize: "12px",
+    },
+    " & .slick-prev:before, .slick-next:before": {
+      color: theme.palette.primary.main,
+      fontSize: "25px",
     },
   },
   sectionNoPaddingY: {
@@ -20,23 +28,6 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 0,
   },
 }))
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-}
 
 const Galery = ({
   data,
@@ -52,32 +43,40 @@ const Galery = ({
   const isSm = useMediaQuery(theme.breakpoints.up("sm"), {
     defaultMatches: true,
   })
+  const settings = {
+    dots: true,
+    loop: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: isMd ? true : false,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }
 
   return (
-    <div className={className} {...rest}>
+    <div className={classes.root} {...rest}>
       <Grid container spacing={isMd ? 4 : 2}>
         <Grid item xs={12}>
-          <Section className={classes.sectionNoPaddingY}>
-            <Grid container>
-              <Grid item xs={12} sm={6}>
-                <SectionHeader title="Videa" subtitle="" fadeUp align="left" />
-              </Grid>
+          <Grid container>
+            <Grid item xs={12} sm={6}>
+              <SectionHeader title="Videa" subtitle="" fadeUp align="left" />
             </Grid>
-          </Section>
+          </Grid>
         </Grid>
       </Grid>
       <Slider {...settings}>
         {data.map((item: any, index: number) => (
-          <Box pl={3} key={index}>
-            <iframe
-              className={classes.videoIframe}
-              title="video"
-              width="100%"
-              height="250px"
-              src={item}
-              frameBorder="0"
-              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-            />
+          <Box key={index} px={1}>
+            <ReactPlayer url={item} controls width="auto" height="260px" />
           </Box>
         ))}
       </Slider>

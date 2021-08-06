@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import scrollTo from "gatsby-plugin-smoothscroll"
 import {
@@ -9,11 +10,27 @@ import {
   Box,
   Typography,
 } from "@material-ui/core"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import { SectionHeader, IconAlternate } from "components/molecules"
 import { DescriptionListIcon } from "components/organisms"
 import { Icon } from "components/atoms"
-import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
+
+const query = graphql`
+  {
+    allContentfulOMneDalsi {
+      nodes {
+        popis
+        titulek
+        icon
+        obrazek {
+          gatsbyImageData
+          title
+        }
+      }
+    }
+  }
+`
+
 const useStyles = makeStyles(() => ({
   image: {
     maxWidth: 420,
@@ -22,7 +39,7 @@ const useStyles = makeStyles(() => ({
 
 const AboutMe = ({ data, className, ...rest }): JSX.Element => {
   const classes = useStyles()
-
+  const dataDalsi = useStaticQuery(query)
   const theme = useTheme()
   const isMd = useMediaQuery(theme.breakpoints.up("md"), {
     defaultMatches: true,
@@ -36,81 +53,74 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
         spacing={isMd ? 4 : 2}
         direction={isMd ? "row" : "column-reverse"}
       >
-        <Grid
-          item
-          container
-          alignItems="center"
-          justify="flex-start"
-          xs={12}
-          md={8}
-          data-aos={"fade-up"}
-          spacing={4}
-        >
-          <Grid item xs={12}>
-            <SectionHeader
-              title={
-                <span>
-                  <span>ŽÁDNÉ FITNESS CENTRUM!</span>{" "}
-                  <Typography
-                    component="span"
-                    variant="inherit"
-                    color="primary"
-                  >
-                    ALE SÍLA A VYTRVALOST V USPĚCHANÉ DOBĚ
-                  </Typography>
-                </span>
-              }
-              subtitle="„Postavíme dům od základů“ – není to pouze o tom si stoupnout před klienta a začít s ním cosi cvičit….spousta trenérů v dnešní době jde s klienty rovnou cvičit náročné cviky, jako je např. plank, benchpress a jiné v domnění, že z nich rovnou udělají mistry ve cvičení. Opak je ale pravdou."
-              align="left"
-              disableGutter
-              subtitleProps={{
-                variant: "body1",
-              }}
-            />
-          </Grid>
-          <Grid
-            item
-            container
-            alignItems="center"
-            direction="column"
-            xs={12}
-            sm={12}
-            md={6}
-            data-aos="fade-up"
-          >
-            <DescriptionListIcon
-              icon={
-                <IconAlternate
-                  fontIconClass="fas fa-check"
-                  color={colors.green}
-                />
-              }
-              title="Co získáte se mnou?"
-              subtitle="Perfektní stabilizaci těla, dechový stereotyp a napravení dosavadních dysbalancí. Proto musím být při své práci především trpělivá a předat klientovi co nejvíce potřebných informací a zkušeností se cvičením."
-              align="left"
-            />
-          </Grid>
-          <Grid
-            item
-            container
-            alignItems="center"
-            direction="column"
-            xs={12}
-            sm={12}
-            md={6}
-            data-aos="fade-up"
-          >
-            <DescriptionListIcon
-              icon={
-                <IconAlternate
-                  fontIconClass="fas fa-times"
-                  color={colors.red}
-                />
-              }
-              title="Fitness objemové tréninky ode mne nečekejte."
-              subtitle=" Specializuji se hlavně na cvičení s vlastním tělem a funkční cvičení. Tělo tak získává postupem času velkou sílu, vytrvalost, rychlost, dynamiku."
-              align="left"
-            />
+        <Grid item xs={12} md={8} data-aos={"fade-up"}>
+          <Grid container alignItems="center" justify="flex-start" spacing={4}>
+            <Grid item xs={12}>
+              <SectionHeader
+                title={
+                  <span>
+                    <span>ŽÁDNÉ FITNESS CENTRUM!</span>{" "}
+                    <Typography
+                      component="span"
+                      variant="inherit"
+                      color="primary"
+                    >
+                      ALE SÍLA A VYTRVALOST V USPĚCHANÉ DOBĚ
+                    </Typography>
+                  </span>
+                }
+                subtitle="„Postavíme dům od základů“ – není to pouze o tom si stoupnout před klienta a začít s ním cosi cvičit….spousta trenérů v dnešní době jde s klienty rovnou cvičit náročné cviky, jako je např. plank, benchpress a jiné v domnění, že z nich rovnou udělají mistry ve cvičení. Opak je ale pravdou."
+                align="center"
+                disableGutter
+                subtitleProps={{
+                  variant: "body1",
+                }}
+              />
+            </Grid>
+            <Grid
+              item
+              container
+              alignItems="center"
+              direction="column"
+              xs={12}
+              sm={12}
+              md={6}
+              data-aos="fade-up"
+            >
+              <DescriptionListIcon
+                icon={
+                  <IconAlternate
+                    fontIconClass="fas fa-check"
+                    color={colors.green}
+                  />
+                }
+                title="Co získáte se mnou?"
+                subtitle="Perfektní stabilizaci těla, dechový stereotyp a napravení dosavadních dysbalancí. Proto musím být při své práci především trpělivá a předat klientovi co nejvíce potřebných informací a zkušeností se cvičením."
+                align="left"
+              />
+            </Grid>
+            <Grid
+              item
+              container
+              alignItems="center"
+              direction="column"
+              xs={12}
+              sm={12}
+              md={6}
+              data-aos="fade-up"
+            >
+              <DescriptionListIcon
+                icon={
+                  <IconAlternate
+                    fontIconClass="fas fa-times"
+                    color={colors.red}
+                  />
+                }
+                title="Fitness objemové tréninky ode mne nečekejte."
+                subtitle=" Specializuji se hlavně na cvičení s vlastním tělem a funkční cvičení. Tělo tak získává postupem času velkou sílu, vytrvalost, rychlost, dynamiku."
+                align="left"
+              />
+            </Grid>
           </Grid>
         </Grid>
         <Grid
@@ -122,63 +132,67 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
           md={4}
           data-aos={"fade-up"}
         >
-          <StaticImage
-            src="../../../assets/images/aboutMe.png"
-            alt="Jana Buthova"
-            placeholder="blurred"
-            layout="fixed"
-            width={300}
-          />
+          <Box mx="auto">
+            <StaticImage
+              src="../../../assets/images/aboutMe.png"
+              alt="Jana Buthova"
+              placeholder="blurred"
+              layout="fixed"
+              width={300}
+            />
+          </Box>
         </Grid>
       </Grid>
       <Box mt={4}>
         <Grid container spacing={4}>
-          {data.map((item: any, index: number) => (
-            <Grid key={index} item xs={12} sm={6} md={4} data-aos="fade-up">
-              <div style={{ display: "grid" }}>
-                <div
-                  style={{
-                    // By using the same grid area for both, they are stacked on top of each other
-                    gridArea: "1/1",
-                    position: "relative",
-                    height: "auto",
-                    zIndex: 100,
-                    // This centers the other elements inside the hero component
-                    display: "grid",
-                    background:
-                      "radial-gradient(circle, rgba(0,0,0,0.4990371148459384) 0%, rgba(0,0,0,1) 77%)",
-                    width: "100%",
-                    padding: "20px",
-                  }}
-                >
-                  <DescriptionListIcon
-                    align="left"
-                    title={item.title}
-                    subtitle={item.description}
-                    icon={
-                      <Icon
-                        fontIconClass={item.icon}
-                        size="large"
-                        fontIconColor={theme.palette.primary.main}
-                      />
-                    }
+          {dataDalsi.allContentfulOMneDalsi.nodes.map(
+            (item: any, index: number) => (
+              <Grid key={index} item xs={12} sm={6} md={4} data-aos="fade-up">
+                <div style={{ display: "grid" }}>
+                  <div
+                    style={{
+                      // By using the same grid area for both, they are stacked on top of each other
+                      gridArea: "1/1",
+                      position: "relative",
+                      height: "auto",
+                      zIndex: 100,
+                      // This centers the other elements inside the hero component
+                      display: "grid",
+                      background:
+                        "radial-gradient(circle, rgba(0,0,0,0.4990371148459384) 0%, rgba(0,0,0,1) 77%)",
+                      width: "100%",
+                      padding: "20px",
+                    }}
+                  >
+                    <DescriptionListIcon
+                      align="left"
+                      title={item.titulek}
+                      subtitle={item.popis}
+                      icon={
+                        <Icon
+                          fontIconClass={item.icon}
+                          size="large"
+                          fontIconColor={theme.palette.primary.main}
+                        />
+                      }
+                    />
+                  </div>
+                  <GatsbyImage
+                    image={item.obrazek.gatsbyImageData}
+                    alt={item.title}
+                    style={{
+                      gridArea: "1/1",
+                      height: "200px",
+                      width: "100%",
+                      zIndex: 1,
+                      // You can set a maximum height for the image, if you wish.
+                      // maxHeight: 600,
+                    }}
                   />
                 </div>
-                <StaticImage
-                  src="../../../assets/images/flexibilita.jpg"
-                  alt="obrazek"
-                  style={{
-                    gridArea: "1/1",
-                    height: "100%",
-                    width: "100%",
-                    zIndex: 1,
-                    // You can set a maximum height for the image, if you wish.
-                    // maxHeight: 600,
-                  }}
-                />
-              </div>
-            </Grid>
-          ))}
+              </Grid>
+            )
+          )}
         </Grid>
       </Box>
       <Box mt={5}>

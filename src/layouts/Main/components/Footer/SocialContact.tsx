@@ -32,13 +32,6 @@ export const query = graphql`
 const useStyles = makeStyles(theme => ({
   root: {
     "& a": { textDecoration: "none" },
-    "& .MuiFormHelperText-root": {
-      backgroundColor: theme.palette.alternate.main,
-      margin: 0,
-    },
-    "& .MuiInputBase-root": {
-      borderRadius: 0,
-    },
   },
 
   listItemText: {
@@ -68,7 +61,7 @@ const SocialContact = () => {
     defaultMatches: true,
   })
   return (
-    <div>
+    <div className={classes.root}>
       <Grid
         container
         direction="column"
@@ -112,7 +105,8 @@ const SocialContact = () => {
             </Grid>
           </Grid>
         </Grid>
-
+      </Grid>
+      <Box mt={2}>
         <Grid item xs={12}>
           <Grid item>
             <ListItem
@@ -172,7 +166,7 @@ const SocialContact = () => {
             </ListItem>
           </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </div>
   )
 }

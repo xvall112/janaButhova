@@ -53,10 +53,9 @@ export const training = [
 export const navigation = [
   { title: "home", slug: "#hero" },
   { title: "o mně", slug: "#aboutMe" },
-  { title: "nebízím", slug: "#training" },
+  { title: "nabízím", slug: "#training" },
   { title: "ceník", slug: "#price" },
   { title: "recenze", slug: "#review" },
-
   { title: "kontakt", slug: "#contact" },
 ]
 

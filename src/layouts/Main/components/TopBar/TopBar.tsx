@@ -42,9 +42,6 @@ export const query = graphql`
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
-    appBar: {
-      backgroundColor: theme.palette.alternate.main,
-    },
     navigation: {
       "& :hover": {
         cursor: "pointer",
@@ -85,6 +82,7 @@ const TopBar = ({ openSideBar }): JSX.Element => {
               <GatsbyImage
                 image={data.contentfulAsset.gatsbyImageData}
                 alt="Logo Jana Buthova"
+                style={{ marginTop: "10px" }}
               />
             </Grid>
             <Hidden smDown>

@@ -13,7 +13,7 @@ import { Image } from "components/atoms"
 import { SectionHeader, IconAlternate } from "components/molecules"
 import { CardReview } from "components/organisms"
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   sectionHeadlineStars: {
     maxWidth: 120,
   },
@@ -26,6 +26,19 @@ const useStyles = makeStyles(() => ({
       margin: "auto 0",
       bottom: "-50px",
     }, */
+    "& .slick-dots li.slick-active button:before": {
+      color: theme.palette.primary.main,
+      fontSize: "12px",
+    },
+    "& .slick-dots li button:before": {
+      color: theme.palette.primary.main,
+      fontSize: "12px",
+    },
+    " & .slick-prev:before, .slick-next:before": {
+      color: theme.palette.primary.main,
+      fontSize: "25px",
+      borderRadius: "0px",
+    },
   },
 }))
 
@@ -46,6 +59,8 @@ const Reviews = ({
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+    arrows: isMd ? true : false,
+
     responsive: [
       {
         breakpoint: 600,
@@ -54,9 +69,6 @@ const Reviews = ({
           slidesToScroll: 1,
         },
       },
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
     ],
   }
 

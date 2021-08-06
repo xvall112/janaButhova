@@ -5,13 +5,11 @@ import { makeStyles, Divider } from "@material-ui/core"
 //components
 import { Hidden } from "@material-ui/core"
 import Hero from "./components/Hero"
-
 import AboutMe from "./components/AboutMe"
 import Training from "./components/Training"
 import Price from "./components/Price"
 import Galery from "./components/Galery"
 import Reviews from "./components/Reviews"
-
 import Section from "../../components/organisms/Section/Section"
 import SectionAlternate from "../../components/organisms/SectionAlternate/SectionAlternate"
 import {
@@ -24,10 +22,11 @@ import {
 
 const query = graphql`
   {
-    allContentfulNabizim {
+    allContentfulNabizim(sort: { fields: contentfulid, order: ASC }) {
       nodes {
         obrazek {
           gatsbyImageData(placeholder: BLURRED, width: 500)
+          title
         }
         id
         slug
@@ -72,9 +71,9 @@ const IndexPage = () => {
       <SectionAlternate primary id="price">
         <Price data={pricings} treninkData={TreninkTime} />
       </SectionAlternate>
-      <section className={classes.promoSection}>
+      <SectionAlternate>
         <Galery data={video} />
-      </section>
+      </SectionAlternate>
       <Section id="review">
         <Reviews data={reviews} />
       </Section>

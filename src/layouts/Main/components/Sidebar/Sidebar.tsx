@@ -21,6 +21,7 @@ import CloseIcon from "@material-ui/icons/Close"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
 import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined"
+import YouTubeIcon from "@material-ui/icons/YouTube"
 //data
 import { navigation } from "../../../../views/IndexView/components/data"
 
@@ -83,12 +84,12 @@ const Sidebar = ({
               zIndex: 100,
               // This centers the other elements inside the hero component
               display: "grid",
-              backgroundColor: "rgba(0, 0, 0, 0.85)",
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
             }}
           >
-            <Grid container direction="column" justify="space-around">
+            <Grid container direction="column">
               <Grid item>
-                <Box mx={2} textAlign="right">
+                <Box mx={2} mt={3} textAlign="right">
                   <IconButton
                     edge="start"
                     color="inherit"
@@ -99,7 +100,7 @@ const Sidebar = ({
                 </Box>
               </Grid>
               <Grid item>
-                <Box my={2} onClick={() => onClose()}>
+                <Box my={5} onClick={() => onClose()}>
                   {navigation.map((item, index) => {
                     return (
                       <Link to={`/${item.slug}`} key={index}>
@@ -109,6 +110,7 @@ const Sidebar = ({
                             key={index}
                             textAlign="center"
                             fontSize={24}
+                            fontWeight="bold"
                           >
                             {item.title}
                           </Box>
@@ -132,6 +134,11 @@ const Sidebar = ({
                   </Grid>
                   <Grid item>
                     <IconButton edge="start" color="inherit">
+                      <YouTubeIcon fontSize="large" color="primary" />
+                    </IconButton>
+                  </Grid>
+                  <Grid item>
+                    <IconButton edge="start" color="inherit">
                       <EmailOutlinedIcon fontSize="large" color="primary" />
                     </IconButton>
                   </Grid>
@@ -149,7 +156,8 @@ const Sidebar = ({
             alt="obrazek"
             style={{
               gridArea: "1/1",
-
+              width: "auto",
+              height: "auto",
               zIndex: 1,
               // You can set a maximum height for the image, if you wish.
               // maxHeight: 600,
