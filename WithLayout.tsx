@@ -35,7 +35,6 @@ export default function WithLayout({
   }, [])
   return (
     <ThemeProvider theme={getTheme("light")}>
-      <CssBaseline />
       <Helmet>
         <script
           src="https://kit.fontawesome.com/4c273e6d43.js"
@@ -43,7 +42,7 @@ export default function WithLayout({
         ></script>
       </Helmet>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-
+      <CssBaseline />
       <Paper elevation={0}>
         <Layout>
           <Component themeMode={"light"} {...rest} />
