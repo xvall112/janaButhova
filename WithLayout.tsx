@@ -34,7 +34,7 @@ export default function WithLayout({
     AOS.init()
   }, [])
   return (
-    <ThemeProvider theme={getTheme("light")}>
+    <ThemeProvider theme={"light"}>
       <Helmet>
         <script
           src="https://kit.fontawesome.com/4c273e6d43.js"
