@@ -4,7 +4,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Box } from "@material-ui/core"
 
 import { SectionHeader } from "components/molecules"
-import ReactPlayer from "react-player"
+import ReactPlayer from "react-player/youtube"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -93,14 +93,7 @@ const Video = ({
             {data.map((item: any, index: number) => {
               return (
                 <Box key={index} px={1}>
-                  <iframe
-                    title="video"
-                    width="100%"
-                    height="200"
-                    src={item}
-                    frameBorder="0"
-                    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                  />
+                  <ReactPlayer url={item} width="100%" height="200px" />
                 </Box>
               )
             })}

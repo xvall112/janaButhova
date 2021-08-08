@@ -1,16 +1,8 @@
 import React from "react"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Slider from "react-slick"
-import {
-  useMediaQuery,
-  Grid,
-  Button,
-  Typography,
-  colors,
-  Box,
-} from "@material-ui/core"
-import { Image } from "components/atoms"
-import { SectionHeader, IconAlternate } from "components/molecules"
+import { useMediaQuery, Grid, Box } from "@material-ui/core"
+
 import { CardReview } from "components/organisms"
 
 const useStyles = makeStyles(theme => ({

@@ -157,9 +157,9 @@ const Sidebar = ({
           <StaticImage
             src="../../../../assets/images/LOGOo.png"
             alt="logo"
+            layout="constrained"
             style={{
               gridArea: "1/1",
-
               zIndex: 1,
               // You can set a maximum height for the image, if you wish.
               // maxHeight: 600,
