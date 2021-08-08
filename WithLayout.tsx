@@ -7,12 +7,39 @@ import { Helmet } from "react-helmet"
 import AOS from "aos"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-
+import "aos/dist/aos.css"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   root: {},
 }))
+
+export const useDarkMode = () => {
+  const [themeMode, setTheme] = useState("light")
+  const [mountedComponent, setMountedComponent] = useState(false)
+
+  const setMode = mode => {
+    window.localStorage.setItem("themeMode", mode)
+    setTheme(mode)
+  }
+
+  const themeToggler = () => {
+    themeMode === "light" ? setMode("light") : setMode("light")
+  }
+
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem("themeMode")
+    localTheme ? setTheme(localTheme) : setMode("light")
+    setMountedComponent(true)
+    AOS.refresh()
+  }, [])
+
+  useEffect(() => {
+    AOS.refresh()
+  }, [themeMode])
+
+  return [themeMode, themeToggler, mountedComponent]
+}
 
 interface Props {
   layout: any
@@ -32,6 +59,7 @@ export default function WithLayout({
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles)
     }
+
     AOS.init({
       once: true,
       delay: 50,
@@ -40,9 +68,11 @@ export default function WithLayout({
     })
   }, [])
 
+  const [themeMode, themeToggler, mountedComponent] = useDarkMode()
+
   const classes = useStyles()
   return (
-    <ThemeProvider theme={getTheme("light")}>
+    <ThemeProvider theme={getTheme(themeMode)}>
       <CssBaseline />
       <Helmet>
         <script
@@ -54,7 +84,7 @@ export default function WithLayout({
 
       <Paper elevation={0}>
         <Layout className={classes.root}>
-          <Component themeMode={"light"} {...rest} />
+          <Component themeMode={themeMode} {...rest} />
         </Layout>
       </Paper>
     </ThemeProvider>
