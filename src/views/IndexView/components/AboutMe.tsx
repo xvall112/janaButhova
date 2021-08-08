@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
 import scrollTo from "gatsby-plugin-smoothscroll"
+
+//materialUI
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import {
   useMediaQuery,
   Grid,
@@ -23,7 +25,7 @@ const query = graphql`
         titulek
         icon
         obrazek {
-          gatsbyImageData
+          gatsbyImageData(width: 400, placeholder: BLURRED)
           title
         }
       }
@@ -46,7 +48,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
   })
 
   return (
-    <div className={className} {...rest} id="aboutMe">
+    <div className={className} {...rest}>
       <Grid
         container
         justify="space-between"
@@ -148,7 +150,13 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
           {dataDalsi.allContentfulOMneDalsi.nodes.map(
             (item: any, index: number) => (
               <Grid key={index} item xs={12} sm={6} md={4} data-aos="fade-up">
-                <div style={{ display: "grid" }}>
+                <div
+                  style={{
+                    display: "grid",
+                    height: "200px",
+                    overflow: "hidden",
+                  }}
+                >
                   <div
                     style={{
                       // By using the same grid area for both, they are stacked on top of each other
@@ -161,7 +169,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
                       background:
                         "radial-gradient(circle, rgba(0,0,0,0.4990371148459384) 0%, rgba(0,0,0,1) 77%)",
                       width: "100%",
-                      padding: "20px",
+                      padding: "20px 0",
                     }}
                   >
                     <DescriptionListIcon
@@ -179,11 +187,10 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
                   </div>
                   <GatsbyImage
                     image={item.obrazek.gatsbyImageData}
-                    alt={item.title}
+                    alt={item.obrazek.title}
                     style={{
                       gridArea: "1/1",
-                      height: "200px",
-                      width: "100%",
+
                       zIndex: 1,
                       // You can set a maximum height for the image, if you wish.
                       // maxHeight: 600,

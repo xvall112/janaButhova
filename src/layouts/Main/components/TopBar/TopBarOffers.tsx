@@ -35,20 +35,18 @@ const TopBar = (): JSX.Element => {
   return (
     <header>
       <AppBar position="absolute" color="transparent">
-        <Toolbar>
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            alignItems="center"
-          >
-            <Grid item>
-              <IconButton onClick={() => navigate(-1)}>
-                <KeyboardArrowLeftIcon fontSize="large" color="primary" />
-              </IconButton>
-            </Grid>
+        <Grid
+          container
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="center"
+        >
+          <Grid item>
+            <IconButton onClick={() => navigate("/")}>
+              <KeyboardArrowLeftIcon fontSize="large" color="primary" />
+            </IconButton>
           </Grid>
-        </Toolbar>
+        </Grid>
       </AppBar>
     </header>
   )

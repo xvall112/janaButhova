@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+import scrollTo from "gatsby-plugin-smoothscroll"
 //components
 import LayoutOffers from "../layouts/Main/Offers"
 import SEO from "../components/seo"
@@ -9,8 +10,8 @@ import { Section } from "components/organisms"
 import ContentfulBody from "./components/contentfulBody"
 import NextOffer from "./components/NextOffer"
 //material UI
-import { makeStyles, useTheme } from "@material-ui/core/styles"
-import { Button, useMediaQuery, Grid, Box, Typography } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+import { Button, Grid, Box, Typography } from "@material-ui/core"
 
 export const query = graphql`
   query($slug: String!) {
@@ -20,7 +21,8 @@ export const query = graphql`
         raw
       }
       obrazek {
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED)
+        title
       }
       title
     }
@@ -67,7 +69,12 @@ const Training = props => {
             >
               <Grid item xs={12}>
                 <Typography variant="h2" color="textPrimary" align="center">
-                  <Box fontWeight="bold" mt="auto" className={classes.title}>
+                  <Box
+                    fontWeight="bold"
+                    mt="auto"
+                    px={1}
+                    className={classes.title}
+                  >
                     {props.data.contentfulNabizim.title}
                   </Box>
                 </Typography>
@@ -87,31 +94,43 @@ const Training = props => {
             }}
           />
         </div>
-        <Section>
-          <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="flex-start"
-            spacing={8}
-          >
-            <Grid item xs={12} md={8}>
-              <Typography color="secondary">
-                <ContentfulBody
-                  body={props.data.contentfulNabizim.longDescription}
-                />
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Typography color="secondary" variant="h5">
-                <Box fontWeight="bold" mb={2}>
-                  Další
+
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="flex-start"
+        >
+          <Grid item xs={12} md={8}>
+            <Section>
+              <>
+                <Typography color="secondary" component="span">
+                  <ContentfulBody
+                    body={props.data.contentfulNabizim.longDescription}
+                  />
+                </Typography>
+
+                <Box textAlign="center" mt={4}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => scrollTo("#contact")}
+                  >
+                    Jdu do toho!
+                  </Button>
                 </Box>
-                <NextOffer />
-              </Typography>
-            </Grid>
+              </>
+            </Section>
           </Grid>
-        </Section>
+          <Grid item xs={12} md={4}>
+            <Typography color="secondary" variant="h4">
+              <Box fontWeight="bold" py={2} pl={{ xs: 2, md: 0 }}>
+                Další
+              </Box>
+            </Typography>
+            <NextOffer />
+          </Grid>
+        </Grid>
       </>
     )
   }

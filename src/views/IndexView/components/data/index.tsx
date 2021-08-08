@@ -55,6 +55,7 @@ export const navigation = [
   { title: "o mně", slug: "#aboutMe" },
   { title: "nabízím", slug: "#training" },
   { title: "ceník", slug: "#price" },
+  { title: "video", slug: "#video" },
   { title: "recenze", slug: "#review" },
   { title: "kontakt", slug: "#contact" },
 ]

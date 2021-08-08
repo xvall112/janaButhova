@@ -14,7 +14,7 @@ import {
 
 const Footer = () => {
   return (
-    <SectionAlternate>
+    <SectionAlternate id="contact">
       <Grid
         container
         direction="row"

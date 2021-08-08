@@ -86,8 +86,14 @@ const TopBar = ({ openSideBar }): JSX.Element => {
               />
             </Grid>
             <Hidden smDown>
-              <Grid item>
-                <Grid container direction="row" spacing={2}>
+              <Grid item xs={8}>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="flex-end"
+                  alignItems="center"
+                  spacing={2}
+                >
                   {navigation.map((item, index) => {
                     return (
                       <Box

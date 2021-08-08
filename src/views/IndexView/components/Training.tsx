@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 const Training = ({ data }) => {
   const classes = useStyles()
   return (
-    <div id="training">
+    <div>
       <Grid container direction="row">
         {data.allContentfulNabizim.nodes.map((item, index) => {
           return (

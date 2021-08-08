@@ -8,7 +8,7 @@ import Hero from "./components/Hero"
 import AboutMe from "./components/AboutMe"
 import Training from "./components/Training"
 import Price from "./components/Price"
-import Galery from "./components/Galery"
+import Video from "./components/Video"
 import Reviews from "./components/Reviews"
 import Section from "../../components/organisms/Section/Section"
 import SectionAlternate from "../../components/organisms/SectionAlternate/SectionAlternate"
@@ -62,22 +62,22 @@ const IndexPage = () => {
   const data = useStaticQuery(query)
   const classes = useStyles()
   return (
-    <div>
+    <>
       <Hero />
-      <SectionAlternate>
+      <SectionAlternate id="aboutMe">
         <AboutMe data={aboutMe} />
       </SectionAlternate>
-      <Training data={data} />
+      <Training data={data} id="training" />
       <SectionAlternate primary id="price">
         <Price data={pricings} treninkData={TreninkTime} />
       </SectionAlternate>
-      <SectionAlternate>
-        <Galery data={video} />
+      <SectionAlternate id="video">
+        <Video data={video} />
       </SectionAlternate>
       <Section id="review">
         <Reviews data={reviews} />
       </Section>
-    </div>
+    </>
   )
 }
 

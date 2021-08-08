@@ -32,6 +32,8 @@ const useStyles = makeStyles(theme => ({
     zIndex: 10000,
   },
   root: {
+    height: "100vh",
+    width: "100vw",
     "& a": { textDecoration: "none", paddingTop: theme.spacing(2) },
     "& a:hover": {
       textDecoration: "underline",
@@ -81,6 +83,7 @@ const Sidebar = ({
               gridArea: "1/1",
               position: "relative",
               height: "100vh",
+              width: "100vw",
               zIndex: 100,
               // This centers the other elements inside the hero component
               display: "grid",
@@ -153,11 +156,10 @@ const Sidebar = ({
           </div>
           <StaticImage
             src="../../../../assets/images/logo.jpg"
-            alt="obrazek"
+            alt="logo"
             style={{
               gridArea: "1/1",
-              width: "auto",
-              height: "auto",
+
               zIndex: 1,
               // You can set a maximum height for the image, if you wish.
               // maxHeight: 600,

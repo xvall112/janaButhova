@@ -70,7 +70,7 @@ const Training = () => {
                     <Grid
                       container
                       direction="column"
-                      justify="center"
+                      justifyContent="center"
                       alignItems="center"
                       data-aos="fade-up"
                     >
@@ -90,7 +90,7 @@ const Training = () => {
                       <Grid
                         container
                         direction="row"
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         spacing={2}
                       ></Grid>
@@ -98,7 +98,7 @@ const Training = () => {
                   </div>
                   <GatsbyImage
                     image={item.obrazek.gatsbyImageData}
-                    alt={item.title}
+                    alt={item.obrazek.title}
                     style={{
                       gridArea: "1/1",
                       height: "100px",

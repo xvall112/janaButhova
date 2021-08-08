@@ -121,8 +121,8 @@ const CardBasePrice = ({
         <Box display="flex" flexDirection="column" height="100%">
           {data.map((item, index) => {
             return (
-              <>
-                <Box key={index} mt={3}>
+              <div key={index}>
+                <Box mt={3}>
                   <Typography variant="h5">
                     <Box fontWeight="bold">{item.title}</Box>
                   </Typography>
@@ -136,14 +136,14 @@ const CardBasePrice = ({
                       key={index}
                     >
                       <Grid item xs={8}>
-                        <Box key={index} mt={1}>
+                        <Box mt={1}>
                           <Typography variant="body1" color="textSecondary">
                             {item.titlePrice}
                           </Typography>
                         </Box>
                       </Grid>
                       <Grid item xs={4}>
-                        <Box key={index} textAlign="right" mt={1}>
+                        <Box textAlign="right" mt={1}>
                           <Typography variant="h6" color="primary">
                             <Box fontWeight="bold">{item.cost} Kč</Box>
                           </Typography>
@@ -152,7 +152,7 @@ const CardBasePrice = ({
                     </Grid>
                   )
                 })}
-              </>
+              </div>
             )
           })}
 

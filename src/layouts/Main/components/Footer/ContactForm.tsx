@@ -99,7 +99,7 @@ const ContactForm = props => {
   })
 
   return (
-    <div className={classes.root} {...rest} id="contact">
+    <div className={classes.root} {...rest}>
       <form
         onSubmit={formik.handleSubmit}
         data-netlify="true"
