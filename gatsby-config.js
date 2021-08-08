@@ -3,8 +3,8 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Jana Búthová`,
-    description: `Personal trainer`,
+    title: `Jana Búthová | FUNKČNÍ & OSOBNÍ TRENÉR`,
+    description: `FUNKČNÍ & OSOBNÍ TRENÉR`,
     author: `@Lukas Valta <valtalukas@sezanm.cz>`,
     social: {
       twitter: `Lukas`,
@@ -29,7 +29,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -38,8 +38,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Jana Búthová | FUNKČNÍ & OSOBNÍ TRENÉR`,
+        short_name: `Jana Búthová`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
