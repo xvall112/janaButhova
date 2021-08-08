@@ -82,7 +82,7 @@ const Reviews = ({
             md={12}
             data-aos="fade-up"
           >
-            <Box mx={2}>
+            <Box mx={{ xs: 0, md: 2 }}>
               <CardReview
                 variant="contained"
                 text={review.feedback}

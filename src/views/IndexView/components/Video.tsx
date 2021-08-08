@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
       height: "auto",
       [theme.breakpoints.down("sm")]: {
         top: "-20%",
-        left: "75%",
+        left: "70%",
       },
     },
     " & .slick-next": {
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
       height: "auto",
       [theme.breakpoints.down("sm")]: {
         top: "-20%",
-        left: "90%",
+        left: "80%",
       },
     },
     " & .slick-prev:before, .slick-next:before": {
@@ -92,7 +92,7 @@ const Video = ({
           <Slider {...settings}>
             {data.map((item: any, index: number) => {
               return (
-                <Box key={index} px={1}>
+                <Box key={index} px={{ xs: 0, md: 1 }}>
                   <ReactPlayer url={item} width="100%" height="200px" />
                 </Box>
               )

@@ -73,9 +73,9 @@ const IndexPage = () => {
       <SectionAlternate primary id="price">
         <Price data={pricings} treninkData={TreninkTime} />
       </SectionAlternate>
-      {/* <SectionAlternate id="video">
+      <SectionAlternate id="video">
         <Video data={video} />
-      </SectionAlternate> */}
+      </SectionAlternate>
       <Section id="review">
         <Reviews data={reviews} />
       </Section>
