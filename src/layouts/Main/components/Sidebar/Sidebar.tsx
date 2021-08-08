@@ -155,7 +155,7 @@ const Sidebar = ({
             </Grid>
           </div>
           <StaticImage
-            src="../../../../assets/images/logo.jpg"
+            src="../../../../assets/images/LOGOo.png"
             alt="logo"
             style={{
               gridArea: "1/1",

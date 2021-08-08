@@ -114,6 +114,7 @@ const Training = props => {
                   <Button
                     variant="contained"
                     color="primary"
+                    size="large"
                     onClick={() => scrollTo("#contact")}
                   >
                     Jdu do toho!

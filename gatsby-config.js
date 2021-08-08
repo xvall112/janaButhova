@@ -25,13 +25,13 @@ module.exports = {
         accessToken: `5OIT7mKwmcuacycu2XhIBb-oyfExws9xmqag8pTg9aU`,
       },
     },
-    {
+    /* {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
       },
-    },
+    }, */
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,

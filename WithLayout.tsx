@@ -69,7 +69,9 @@ export default function WithLayout({
   }, [])
 
   const [themeMode, themeToggler, mountedComponent] = useDarkMode()
-
+  useEffect(() => {
+    AOS.refresh()
+  }, [mountedComponent])
   const classes = useStyles()
   return (
     <ThemeProvider theme={getTheme(themeMode)}>

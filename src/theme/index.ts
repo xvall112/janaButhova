@@ -16,10 +16,9 @@ const getTheme = mode =>
       typography: {
         fontFamily: [
         
-          '-apple-system',
-          'BlinkMacSystemFont',
+          
           '"Segoe UI"',
-          'Roboto',
+          
           '"Helvetica Neue"',
           'Arial',
           'sans-serif',

@@ -139,8 +139,6 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
               src="../../../assets/images/aboutMe.png"
               alt="Jana Buthova"
               placeholder="blurred"
-              layout="fixed"
-              width={300}
             />
           </Box>
         </Grid>
