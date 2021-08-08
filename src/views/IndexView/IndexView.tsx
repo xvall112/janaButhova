@@ -67,7 +67,9 @@ const IndexPage = () => {
       <SectionAlternate id="aboutMe">
         <AboutMe data={aboutMe} />
       </SectionAlternate>
-      <Training data={data} id="training" />
+      <div id="training">
+        <Training data={data} />
+      </div>
       <SectionAlternate primary id="price">
         <Price data={pricings} treninkData={TreninkTime} />
       </SectionAlternate>

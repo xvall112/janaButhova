@@ -5,7 +5,6 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import getTheme from "./src/theme/index"
 import { Helmet } from "react-helmet"
 import AOS from "aos"
-import "aos/dist/aos.css"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
@@ -28,17 +27,17 @@ export default function WithLayout({
   ...rest
 }: Props): JSX.Element {
   useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector("#jss-server-side")
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles)
+    }
     AOS.init({
       once: true,
       delay: 50,
       duration: 500,
       easing: "ease-in-out",
     })
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector("#jss-server-side")
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles)
-    }
   }, [])
 
   const classes = useStyles()
