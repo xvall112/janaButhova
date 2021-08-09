@@ -7,35 +7,46 @@ import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
 import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined"
 import YouTubeIcon from "@material-ui/icons/YouTube"
 
+import { contact } from "../../../../views/IndexView/components/data/index"
 import { Grid, IconButton } from "@material-ui/core"
 const Contact = () => {
   return (
     <div>
       <Grid container direction="column">
         <Grid item>
-          <IconButton aria-label="instagram" color="primary">
-            <InstagramIcon />
-          </IconButton>
+          <a href={contact.instagram}>
+            <IconButton aria-label="instagram" color="primary">
+              <InstagramIcon />
+            </IconButton>
+          </a>
         </Grid>
         <Grid item>
-          <IconButton aria-label="facebook" color="primary">
-            <FacebookIcon />
-          </IconButton>
+          <a href={contact.facebook}>
+            <IconButton aria-label="facebook" color="primary">
+              <FacebookIcon />
+            </IconButton>
+          </a>
         </Grid>
         <Grid item>
-          <IconButton aria-label="facebook" color="primary">
-            <YouTubeIcon />
-          </IconButton>
+          <a href={contact.youtube}>
+            <IconButton aria-label="facebook" color="primary">
+              <YouTubeIcon />
+            </IconButton>
+          </a>
         </Grid>
         <Grid item>
-          <IconButton aria-label="email" color="primary">
-            <EmailOutlinedIcon />
-          </IconButton>
+          <a href={`mailto:${contact.email}`}>
+            <IconButton aria-label="email" color="primary">
+              <EmailOutlinedIcon />
+            </IconButton>
+          </a>
         </Grid>
         <Grid item>
-          <IconButton aria-label="phone" color="primary">
-            <PhoneOutlinedIcon />
-          </IconButton>
+          <a href={`tel:${contact.phone}`}>
+            <IconButton aria-label="phone" color="primary">
+              <PhoneOutlinedIcon />
+            </IconButton>
+          </a>
         </Grid>
       </Grid>
     </div>

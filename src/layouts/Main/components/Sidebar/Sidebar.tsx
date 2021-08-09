@@ -1,11 +1,9 @@
-import React, { useContext } from "react"
-import { graphql, useStaticQuery, Link, navigate } from "gatsby"
+import React from "react"
+import { Link } from "gatsby"
 import clsx from "clsx"
 import { StaticImage } from "gatsby-plugin-image"
 
 //components
-
-import { CardBase } from "components/organisms"
 //materialUI
 import InstagramIcon from "@material-ui/icons/Instagram"
 import { makeStyles } from "@material-ui/core/styles"
@@ -23,7 +21,10 @@ import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined"
 import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined"
 import YouTubeIcon from "@material-ui/icons/YouTube"
 //data
-import { navigation } from "../../../../views/IndexView/components/data"
+import {
+  navigation,
+  contact,
+} from "../../../../views/IndexView/components/data"
 
 const useStyles = makeStyles(theme => ({
   drawer: {
@@ -126,29 +127,39 @@ const Sidebar = ({
               <Grid item>
                 <Grid container direction="row" justify="space-evenly">
                   <Grid item>
-                    <IconButton edge="start" color="inherit">
-                      <InstagramIcon fontSize="large" color="primary" />
-                    </IconButton>
+                    <a href={contact.instagram}>
+                      <IconButton aria-label="instagram" color="primary">
+                        <InstagramIcon fontSize="large" />
+                      </IconButton>
+                    </a>
                   </Grid>
                   <Grid item>
-                    <IconButton edge="start" color="inherit">
-                      <FacebookIcon fontSize="large" color="primary" />
-                    </IconButton>
+                    <a href={contact.facebook}>
+                      <IconButton aria-label="facebook" color="primary">
+                        <FacebookIcon fontSize="large" />
+                      </IconButton>
+                    </a>
                   </Grid>
                   <Grid item>
-                    <IconButton edge="start" color="inherit">
-                      <YouTubeIcon fontSize="large" color="primary" />
-                    </IconButton>
+                    <a href={contact.youtube}>
+                      <IconButton aria-label="facebook" color="primary">
+                        <YouTubeIcon fontSize="large" />
+                      </IconButton>
+                    </a>
                   </Grid>
                   <Grid item>
-                    <IconButton edge="start" color="inherit">
-                      <EmailOutlinedIcon fontSize="large" color="primary" />
-                    </IconButton>
+                    <a href={`mailto:${contact.email}`}>
+                      <IconButton aria-label="email" color="primary">
+                        <EmailOutlinedIcon fontSize="large" />
+                      </IconButton>
+                    </a>
                   </Grid>
                   <Grid item>
-                    <IconButton edge="start" color="inherit">
-                      <PhoneOutlinedIcon fontSize="large" color="primary" />
-                    </IconButton>
+                    <a href={`tel:${contact.phone}`}>
+                      <IconButton aria-label="phone" color="primary">
+                        <PhoneOutlinedIcon fontSize="large" />
+                      </IconButton>
+                    </a>
                   </Grid>
                 </Grid>
               </Grid>
@@ -157,8 +168,8 @@ const Sidebar = ({
           <StaticImage
             src="../../../../assets/images/LOGOo.png"
             alt="logo"
-            layout="constrained"
             style={{
+              height: "50vh",
               gridArea: "1/1",
               zIndex: 1,
               // You can set a maximum height for the image, if you wish.

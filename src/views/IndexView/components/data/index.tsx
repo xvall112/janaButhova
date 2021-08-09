@@ -11,44 +11,6 @@ export const video = [
   "https://www.youtube.com/embed/ClIbn_IF31U",
   "https://www.youtube.com/embed/ClIbn_IF31U",
 ]
-export const training = [
-  {
-    title: "skupinové outdoor",
-    description: "description",
-    image: "../../../assets/images/skupinoveOutdoor.jpg",
-    slug: "skupinoveOutdoor",
-  },
-  {
-    title: "skupinové indoor",
-    description: "description",
-    image: "../../../assets/images/skupinoveIndoor.jpg",
-    slug: "skupinoveOutdoor",
-  },
-  {
-    title: "individualní plán",
-    description: "description",
-    image: "../../../assets/images/individualniPlan.jpg",
-    slug: "skupinoveOutdoor",
-  },
-  {
-    title: "výživovy plán",
-    description: "description",
-    image: "../../../assets/images/vzyivovyPlan.jpg",
-    slug: "skupinoveOutdoor",
-  },
-  {
-    title: "trener za vámi",
-    description: "description",
-    image: "../../../assets/images/trenerZaVami.jpg",
-    slug: "skupinoveOutdoor",
-  },
-  {
-    title: "vy za trenérem",
-    description: "description",
-    image: "../../../assets/images/vyZaTrenerem.jpg",
-    slug: "skupinoveOutdoor",
-  },
-]
 
 export const navigation = [
   { title: "home", slug: "#hero" },
@@ -135,40 +97,12 @@ export const reviews = [
   },
 ]
 
-export const aboutMe = [
-  {
-    icon: "fas fa-dumbbell",
-    title: "Síla",
-    description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum fermentum tortor id mi. Etiam quis quam",
-    image: "../../../assets/images/skupinoveIndoor.jpg",
-  },
-  {
-    icon: "fas fa-stopwatch",
-    title: "Vytrvalost",
-    description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum fermentum tortor id mi. Etiam quis quam.",
-    image: "../../../assets/images/skupinoveIndoor.jpg",
-  },
-  /*  {
-    icon: "fas fa-running",
-    title: "Rychlost",
-    description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum fermentum tortor id mi. Etiam quis quam. ",
-  }, */
-  {
-    icon: "fab fa-react",
-    title: "Flexibilita",
-    description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum fermentum tortor id mi. Etiam quis quam.",
-    image: "../../../assets/images/skupinoveIndoor.jpg",
-  },
-]
 export const contact = {
   email: "jana.buthova@gmail.com",
-  instagram: "instagram",
-  mobile: "703 681 841",
-  facebook: "facebook",
+  phone: "703681841",
+  instagram: "https://www.instagram.com/janabuthovatrainer",
+  facebook: "https://www.facebook.com/profile.php?id=100016775943875",
+  youtube: "",
 }
 
 export const pricings = [

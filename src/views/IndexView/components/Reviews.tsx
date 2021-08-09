@@ -2,36 +2,12 @@ import React from "react"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Slider from "react-slick"
 import { useMediaQuery, Grid, Box } from "@material-ui/core"
-
+import { SectionHeader } from "components/molecules"
 import { CardReview } from "components/organisms"
+import SwiperComponent from "../../../components/swiper"
 
 const useStyles = makeStyles(theme => ({
-  sectionHeadlineStars: {
-    maxWidth: 120,
-  },
-  root: {
-    position: "relative",
-    height: "100%",
-    width: "100%",
-    /* "& svg": {
-      position: "absolute",
-      margin: "auto 0",
-      bottom: "-50px",
-    }, */
-    "& .slick-dots li.slick-active button:before": {
-      color: theme.palette.primary.main,
-      fontSize: "12px",
-    },
-    "& .slick-dots li button:before": {
-      color: theme.palette.primary.main,
-      fontSize: "12px",
-    },
-    " & .slick-prev:before, .slick-next:before": {
-      color: theme.palette.primary.main,
-      fontSize: "25px",
-      borderRadius: "0px",
-    },
-  },
+  root: {},
 }))
 
 const Reviews = ({
@@ -65,33 +41,29 @@ const Reviews = ({
   }
 
   return (
-    <div className={classes.root}>
-      {/* <svg width="450px" height="450px" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" width="100%" height="100%" rx="1" fill="#ffdf58" />
-      </svg> */}
-
-      <Slider {...settings}>
-        {data.map((review: any, index: number) => (
-          <Grid
-            key={index}
-            item
-            container
-            alignItems="center"
-            direction="column"
-            xs={12}
-            md={12}
-            data-aos="fade-up"
-          >
-            <Box mx={{ xs: 0, md: 2 }}>
+    <div className={classes.root} {...rest}>
+      <Grid container>
+        <Grid item xs={12}>
+          <SectionHeader
+            title="Recenze"
+            subtitle=""
+            subtitleColor="primary"
+            fadeUp
+            align="left"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <SwiperComponent
+            data={data.map((review: any, index: number) => (
               <CardReview
                 variant="contained"
                 text={review.feedback}
                 authorName={review.authorName}
               />
-            </Box>
-          </Grid>
-        ))}
-      </Slider>
+            ))}
+          />
+        </Grid>
+      </Grid>
     </div>
   )
 }

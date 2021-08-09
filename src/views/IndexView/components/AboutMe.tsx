@@ -151,7 +151,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
                 <div
                   style={{
                     display: "grid",
-                    height: "200px",
+                    height: "auto",
                     overflow: "hidden",
                   }}
                 >
@@ -175,11 +175,16 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
                       title={item.titulek}
                       subtitle={item.popis}
                       icon={
-                        <Icon
+                        <IconAlternate
+                          fontIconClass={item.icon}
+                          color={colors.red}
+                          size="small"
+                        />
+                        /*  <Icon
                           fontIconClass={item.icon}
                           size="large"
                           fontIconColor={theme.palette.primary.main}
-                        />
+                        /> */
                       }
                     />
                   </div>
@@ -188,7 +193,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
                     alt={item.obrazek.title}
                     style={{
                       gridArea: "1/1",
-
+                      maxHeight: "250px",
                       zIndex: 1,
                       // You can set a maximum height for the image, if you wish.
                       // maxHeight: 600,

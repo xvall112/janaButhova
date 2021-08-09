@@ -5,10 +5,16 @@ import { makeStyles } from "@material-ui/core/styles"
 const useStyles = makeStyles(theme => ({
   root: {
     background: theme.palette.alternate.main,
+    overflow: "hidden",
   },
-  roott: {
+  primary: {
     background:
       " linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(254,221,88,0.7968137938769257) 100%)",
+    overflow: "hidden",
+  },
+  secondary: {
+    background: "transparent",
+    overflow: "hidden",
   },
   inner: {
     maxWidth: theme.layout.contentWidth,
@@ -37,6 +43,7 @@ const SectionAlternate = ({
   innerNarrowed,
   className,
   primary,
+  secondary,
   ...rest
 }: SectionAlternateProps): JSX.Element => {
   const classes = useStyles()
@@ -45,7 +52,9 @@ const SectionAlternate = ({
     <section
       className={
         primary
-          ? clsx("section-alternate", classes.roott, className)
+          ? clsx("section-alternate", classes.primary, className)
+          : secondary
+          ? clsx("section-alternate", classes.secondary, className)
           : clsx("section-alternate", classes.root, className)
       }
       {...rest}

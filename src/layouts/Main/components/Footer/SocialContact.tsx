@@ -83,25 +83,31 @@ const SocialContact = () => {
         <Grid item xs={12}>
           <Grid container direction="row">
             <Grid item>
-              <ListItemAvatar>
-                <Avatar variant="square" className={classes.avatar}>
-                  <FacebookIcon />
-                </Avatar>
-              </ListItemAvatar>
+              <a href={contact.facebook}>
+                <ListItemAvatar>
+                  <Avatar variant="square" className={classes.avatar}>
+                    <FacebookIcon />
+                  </Avatar>
+                </ListItemAvatar>
+              </a>
             </Grid>
             <Grid item>
-              <ListItemAvatar>
-                <Avatar variant="square" className={classes.avatar}>
-                  <InstagramIcon />
-                </Avatar>
-              </ListItemAvatar>
+              <a href={contact.instagram}>
+                <ListItemAvatar>
+                  <Avatar variant="square" className={classes.avatar}>
+                    <InstagramIcon />
+                  </Avatar>
+                </ListItemAvatar>
+              </a>
             </Grid>
             <Grid item>
-              <ListItemAvatar>
-                <Avatar variant="square" className={classes.avatar}>
-                  <YouTubeIcon />
-                </Avatar>
-              </ListItemAvatar>
+              <a href={contact.youtube}>
+                <ListItemAvatar>
+                  <Avatar variant="square" className={classes.avatar}>
+                    <YouTubeIcon />
+                  </Avatar>
+                </ListItemAvatar>
+              </a>
             </Grid>
           </Grid>
         </Grid>
@@ -119,11 +125,11 @@ const SocialContact = () => {
                   <PhoneIcon />
                 </Avatar>
               </ListItemAvatar>
-              <a href={`tel:${contact.mobile}`}>
+              <a href={`tel:${contact.phone}`}>
                 <ListItemText
                   className={classes.listItemText}
                   primary="Telefon"
-                  secondary={contact.mobile}
+                  secondary={contact.phone}
                   primaryTypographyProps={{
                     variant: "subtitle1",
                     color: "textPrimary",

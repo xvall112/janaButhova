@@ -9,6 +9,8 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import "aos/dist/aos.css"
 import { makeStyles } from "@material-ui/core/styles"
+import "swiper/swiper-bundle.min.css"
+import "swiper/swiper.min.css"
 
 const useStyles = makeStyles(theme => ({
   root: {},

@@ -41,7 +41,7 @@
     "react-typed": "^1.2.0",
     "sass": "^1.35.2",
     "slick-carousel": "^1.8.1",
-    "swiper": "^6.7.5",
+    "swiper": "^6.8.1",
     "yup": "^0.32.9"
   },
   "devDependencies": {

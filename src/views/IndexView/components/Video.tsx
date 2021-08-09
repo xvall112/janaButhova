@@ -1,42 +1,11 @@
 import React from "react"
-import Slider from "react-slick"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Box } from "@material-ui/core"
-
 import { SectionHeader } from "components/molecules"
 import ReactPlayer from "react-player/youtube"
-
+import SwiperComponent from "../../../components/swiper"
 const useStyles = makeStyles(theme => ({
-  root: {
-    "& .slick-dots li.slick-active button:before": {
-      color: theme.palette.primary.main,
-      fontSize: "12px",
-    },
-    "& .slick-dots li button:before": {
-      color: theme.palette.primary.main,
-      fontSize: "12px",
-    },
-    " & .slick-prev": {
-      width: "auto",
-      height: "auto",
-      [theme.breakpoints.down("sm")]: {
-        top: "-20%",
-        left: "200px",
-      },
-    },
-    " & .slick-next": {
-      width: "auto",
-      height: "auto",
-      [theme.breakpoints.down("sm")]: {
-        top: "-20%",
-        left: "250px",
-      },
-    },
-    " & .slick-prev:before, .slick-next:before": {
-      color: theme.palette.primary.main,
-      fontSize: "25px",
-    },
-  },
+  root: {},
   sectionNoPaddingY: {
     paddingTop: 0,
     paddingBottom: 0,
@@ -49,7 +18,6 @@ const Video = ({
   ...rest
 }: ViewComponentProps): JSX.Element => {
   const classes = useStyles()
-
   const theme = useTheme()
   const isMd = useMediaQuery(theme.breakpoints.up("md"), {
     defaultMatches: true,
@@ -89,20 +57,13 @@ const Video = ({
           />
         </Grid>
         <Grid item xs={12}>
-          <Slider {...settings}>
-            {data.map((item: any, index: number) => {
+          <SwiperComponent
+            data={data.map((item: any, index: number) => {
               return (
-                <Box key={index} px={{ xs: 0, md: 1 }}>
-                  <ReactPlayer
-                    url={item}
-                    controls
-                    width="100%"
-                    height="200px"
-                  />
-                </Box>
+                <ReactPlayer url={item} controls width="100%" height="200px" />
               )
             })}
-          </Slider>
+          />
         </Grid>
       </Grid>
     </div>
