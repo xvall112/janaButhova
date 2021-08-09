@@ -169,6 +169,7 @@ const Sidebar = ({
             src="../../../../assets/images/LOGOo.png"
             alt="logo"
             style={{
+              top: "20%",
               height: "50vh",
               gridArea: "1/1",
               zIndex: 1,

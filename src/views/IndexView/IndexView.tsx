@@ -12,13 +12,7 @@ import Video from "./components/Video"
 import Reviews from "./components/Reviews"
 import Section from "../../components/organisms/Section/Section"
 import SectionAlternate from "../../components/organisms/SectionAlternate/SectionAlternate"
-import {
-  video,
-  pricings,
-  aboutMe,
-  reviews,
-  TreninkTime,
-} from "./components/data"
+import { video, pricings, reviews, TreninkTime } from "./components/data"
 
 const query = graphql`
   {
@@ -65,7 +59,7 @@ const IndexPage = () => {
     <>
       <Hero />
       <SectionAlternate id="aboutMe">
-        <AboutMe data={aboutMe} />
+        <AboutMe />
       </SectionAlternate>
       <div id="training">
         <Training data={data} />

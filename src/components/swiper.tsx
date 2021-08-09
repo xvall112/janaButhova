@@ -63,7 +63,7 @@ const SwiperComponent = ({
   return (
     <div className={classes.root} {...rest}>
       <Swiper
-        spaceBetween={10}
+        spaceBetween={20}
         slidesPerView={isMd ? 3 : 1}
         navigation
         pagination={{ clickable: true }}

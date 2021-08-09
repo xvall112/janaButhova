@@ -68,7 +68,7 @@ const Training = ({ data }) => {
                         </Box>
 
                         <Box fontSize={18} textAlign="center">
-                          {item.shortDescription}
+                          {item.shortDescription && item.shortDescription}
                         </Box>
                       </Typography>
                       <Box mt={2} textAlign="center">
