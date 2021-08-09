@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
       height: "auto",
       [theme.breakpoints.down("sm")]: {
         top: "-20%",
-        left: "70%",
+        left: "200px",
       },
     },
     " & .slick-next": {
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
       height: "auto",
       [theme.breakpoints.down("sm")]: {
         top: "-20%",
-        left: "80%",
+        left: "250px",
       },
     },
     " & .slick-prev:before, .slick-next:before": {
@@ -69,7 +69,6 @@ const Video = ({
       {
         breakpoint: 600,
         settings: {
-          arrows: false,
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -94,7 +93,12 @@ const Video = ({
             {data.map((item: any, index: number) => {
               return (
                 <Box key={index} px={{ xs: 0, md: 1 }}>
-                  <ReactPlayer url={item} width="100%" height="200px" />
+                  <ReactPlayer
+                    url={item}
+                    controls
+                    width="100%"
+                    height="200px"
+                  />
                 </Box>
               )
             })}
