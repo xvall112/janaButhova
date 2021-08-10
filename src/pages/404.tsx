@@ -5,11 +5,11 @@
  */
 import React from "react"
 import NotFoundCover from "views/NotFoundCover"
-import Offers from "../layouts/Main/Offers"
+import Minimal from "../layouts/Main/Minimal"
 import WithLayout from "../../WithLayout"
 
 const FourOFourPage = (): JSX.Element => {
-  return <WithLayout component={NotFoundCover} layout={Offers} />
+  return <WithLayout component={NotFoundCover} layout={Minimal} />
 }
 
 export default FourOFourPage

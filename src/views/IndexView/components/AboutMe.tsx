@@ -90,6 +90,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
               data-aos="fade-up"
             >
               <DescriptionListIcon
+                subtitleAlign="justify"
                 icon={
                   <IconAlternate
                     fontIconClass="fas fa-check"
@@ -112,6 +113,7 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
               data-aos="fade-up"
             >
               <DescriptionListIcon
+                subtitleAlign="justify"
                 icon={
                   <IconAlternate
                     fontIconClass="fas fa-times"
@@ -174,11 +176,12 @@ const AboutMe = ({ data, className, ...rest }): JSX.Element => {
                       align="left"
                       title={item.titulek}
                       subtitle={item.popis}
+                      subtitleAlign="justify"
                       icon={
                         <IconAlternate
                           fontIconClass={item.icon}
                           color={colors.red}
-                          size="small"
+                          size="medium"
                         />
                         /*  <Icon
                           fontIconClass={item.icon}

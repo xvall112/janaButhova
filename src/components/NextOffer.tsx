@@ -1,10 +1,30 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
+import { Link, navigate, graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 //material UI
-import { makeStyles, useTheme } from "@material-ui/core/styles"
-import { Button, useMediaQuery, Grid, Box, Typography } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+import { Button, Grid, Box, Typography } from "@material-ui/core"
+
+const query = graphql`
+  {
+    allContentfulNabizim(sort: { fields: contentfulid, order: ASC }) {
+      nodes {
+        obrazek {
+          gatsbyImageData(placeholder: BLURRED, width: 500)
+          title
+        }
+        id
+        slug
+        title
+        shortDescription
+        longDescription {
+          raw
+        }
+      }
+    }
+  }
+`
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,11 +32,7 @@ const useStyles = makeStyles(theme => ({
       color: "white",
       textDecoration: "none",
     },
-    "& img": {
-      transition:
-        "transform .5s 1s ease-in-out,-webkit-transform .5s ease-in-out",
-      transform: "scale(1.0)",
-    },
+
     "& :hover": {
       "& img": {
         transition:
@@ -27,14 +43,15 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Training = ({ data }) => {
+const Training = () => {
+  const data = useStaticQuery(query)
   const classes = useStyles()
   return (
-    <div>
-      <Grid container direction="row">
+    <div id="training">
+      <Grid container direction="column">
         {data.allContentfulNabizim.nodes.map((item, index) => {
           return (
-            <Grid item xs={12} md={4} key={index} className={classes.root}>
+            <Grid item xs={12} key={index} className={classes.root}>
               <Link to={`/nabizim/${item.slug}`}>
                 <div style={{ display: "grid" }}>
                   <div
@@ -42,7 +59,7 @@ const Training = ({ data }) => {
                       // By using the same grid area for both, they are stacked on top of each other
                       gridArea: "1/1",
                       position: "relative",
-                      height: "50vh",
+                      height: "100px",
                       zIndex: 100,
                       // This centers the other elements inside the hero component
                       placeItems: "center",
@@ -53,41 +70,27 @@ const Training = ({ data }) => {
                     <Grid
                       container
                       direction="column"
-                      justify="center"
+                      justifyContent="center"
                       alignItems="center"
                       data-aos="fade-up"
                     >
                       <Typography component="span" variant="button">
                         <Box
-                          fontSize={32}
+                          fontSize={24}
                           fontWeight="bold"
                           letterSpacing={2}
                           textAlign="center"
                         >
                           {item.title}
                         </Box>
-
-                        <Box fontSize={18} textAlign="center">
-                          {item.shortDescription && item.shortDescription}
-                        </Box>
                       </Typography>
-                      <Box mt={2} textAlign="center">
-                        <Button
-                          variant="outlined"
-                          color="primary"
-                          size="large"
-                          onClick={() => navigate(`/${item.slug}`)}
-                        >
-                          více
-                        </Button>
-                      </Box>
                     </Grid>
 
                     <Box position="absolute" bottom="50px" width="100%">
                       <Grid
                         container
                         direction="row"
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         spacing={2}
                       ></Grid>
@@ -95,32 +98,16 @@ const Training = ({ data }) => {
                   </div>
                   <GatsbyImage
                     image={item.obrazek.gatsbyImageData}
-                    alt={item.title}
+                    alt={item.obrazek.title}
                     style={{
                       gridArea: "1/1",
-                      height: "50vh",
+                      height: "100px",
                       zIndex: 1,
-
-                      // You can set a maximum height for the image, if you wish.
-                      // maxHeight: 600,
                     }}
                   />
                 </div>
               </Link>
             </Grid>
-
-            /*  <GatsbyImage
-              image={item.image.gatsbyImageData}
-              style={{
-                gridArea: "1/1",
-                height: "70vh",
-                zIndex: 1,
-                // You can set a maximum height for the image, if you wish.
-                // maxHeight: 600,
-              }}
-              alt={item.image.title}
-              formats={["auto", "webp", "avif"]}
-            /> */
           )
         })}
       </Grid>

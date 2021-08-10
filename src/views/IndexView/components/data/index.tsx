@@ -6,10 +6,9 @@ import YouTubeIcon from "@material-ui/icons/YouTube"
 import { MinimizeOutlined } from "@material-ui/icons"
 
 export const video = [
-  "https://www.youtube.com/embed/ClIbn_IF31U",
-  "https://www.youtube.com/embed/ClIbn_IF31U",
-  "https://www.youtube.com/embed/ClIbn_IF31U",
-  "https://www.youtube.com/embed/ClIbn_IF31U",
+  "https://www.youtube.com/watch?v=C5Z2r66wHZ0",
+  "https://www.youtube.com/watch?v=WqmRZYHaujU",
+  "https://www.youtube.com/watch?v=oYxwBh8FNf8",
 ]
 
 export const navigation = [
@@ -102,7 +101,7 @@ export const contact = {
   phone: "703681841",
   instagram: "https://www.instagram.com/janabuthovatrainer",
   facebook: "https://www.facebook.com/profile.php?id=100016775943875",
-  youtube: "",
+  youtube: "https://www.youtube.com/channel/UCptIuKxn8u8kICMJbckHKgg",
 }
 
 export const pricings = [
@@ -139,7 +138,7 @@ export const pricings = [
       {
         title: "INDOOR",
         price: [
-          { titlePrice: "60 minut", cost: 500 },
+          { titlePrice: "60 minut", cost: 100 },
           { titlePrice: "10 + 1 vstup", cost: 1000 },
         ],
       },

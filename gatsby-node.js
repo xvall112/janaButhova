@@ -6,7 +6,7 @@
 
 // You can delete this file if you're not using it
 
-const path = require("path")
+/* const path = require("path")
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -32,3 +32,4 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+ */
