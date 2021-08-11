@@ -42,7 +42,7 @@ const TopBar = (): JSX.Element => {
           alignItems="center"
         >
           <Grid item>
-            <IconButton onClick={() => navigate("/")}>
+            <IconButton onClick={() => navigate("/#training")}>
               <KeyboardArrowLeftIcon fontSize="large" color="primary" />
             </IconButton>
           </Grid>
