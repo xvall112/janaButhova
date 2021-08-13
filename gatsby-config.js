@@ -15,7 +15,7 @@ module.exports = {
     `gatsby-plugin-fontawesome-css`,
     "gatsby-plugin-resolve-src",
     `gatsby-plugin-image`,
-    `gatsby-plugin-sitemap`,
+    /* `gatsby-plugin-sitemap`, */
     `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-source-contentful`,
