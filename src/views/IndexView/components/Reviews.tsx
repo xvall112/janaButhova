@@ -55,7 +55,7 @@ const Reviews = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                   variant="contained"
                   text={review.text}
                   authorName={review.jmeno}
-                  authorPhoto={review.fotka.file.url}
+                  authorPhoto={review.fotka && review.fotka.file.url}
                 />
               )
             )}
