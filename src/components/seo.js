@@ -8,16 +8,19 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
+import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
 const SEO = ({ description, lang, meta, title }) => {
+  const { pathname } = useLocation()
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            title
-            description
+            siteTitle
+            siteDescription
+            siteUrl
             social {
               twitter
             }
@@ -26,52 +29,33 @@ const SEO = ({ description, lang, meta, title }) => {
       }
     `
   )
+  const { siteTitle, siteDescription, siteUrl } = site.siteMetadata
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const seo = {
+    title: title || siteTitle,
+    description: description || siteDescription,
+    image: "../assets/images/heroImage.jpg",
+    url: `${siteUrl}${pathname}`,
+  }
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+      title={`${title} | ${siteTitle}`}
+    >
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={seo.image} />
+      {/* facebook cards */}
+      <meta property="og:url" content={seo.ulr} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
+      <meta property="og:image:width" content="100%" />
+      <meta property="og:image:height" content="auto" />
+    </Helmet>
   )
 }
 

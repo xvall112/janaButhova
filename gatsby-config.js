@@ -3,8 +3,9 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Jana Búthová | FUNKČNÍ & OSOBNÍ TRENÉR`,
-    description: `FUNKČNÍ & OSOBNÍ TRENÉR v Dolních Hbitech`,
+    siteTitle: `FUNKČNÍ & OSOBNÍ TRENÉR Jana Búthová`,
+    siteDescription: `FUNKČNÍ & OSOBNÍ TRENÉR v Dolních Hbitech - Osobní tréninky, Skupinové tréninky, Výživové poradenství, Tréninkové plány`,
+    siteUrl: `https://www.janabuthovatrainer.cz`,
     author: `@Lukas Valta <valtalukas@sezanm.cz>`,
     social: {
       twitter: `Lukas`,
@@ -15,7 +16,7 @@ module.exports = {
     `gatsby-plugin-fontawesome-css`,
     "gatsby-plugin-resolve-src",
     `gatsby-plugin-image`,
-    /* `gatsby-plugin-sitemap`, */
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-source-contentful`,

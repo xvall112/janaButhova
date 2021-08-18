@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 const IndexPage = (): JSX.Element => {
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Jana Búthová" />
       <WithLayout component={IndexView} layout={Main} />
     </>
   )
