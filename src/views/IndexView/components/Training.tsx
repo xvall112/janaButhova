@@ -13,14 +13,12 @@ const useStyles = makeStyles(theme => ({
       textDecoration: "none",
     },
     "& img": {
-      transition:
-        "transform .5s 1s ease-in-out,-webkit-transform .5s ease-in-out",
+      transition: "all 0.5s ease-out,-webkit-transform .5s ease-in-out",
       transform: "scale(1.0)",
     },
     "& :hover": {
       "& img": {
-        transition:
-          "transform .5s 1s ease-in-out,-webkit-transform .5s ease-in-out",
+        transition: "all 0.5s ease-out,-webkit-transform .5s ease-in-out",
         transform: "scale(1.1)",
       },
     },
