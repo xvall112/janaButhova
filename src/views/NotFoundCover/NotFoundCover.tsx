@@ -30,9 +30,7 @@ const useStyles = makeStyles(theme => {
         margin: `0 auto`,
       },
     },
-    image: {
-      objectFit: "cover",
-    },
+
     label: {
       fontWeight: "bold",
       textTransform: "uppercase",
@@ -83,7 +81,7 @@ const NotFoundCover = (): JSX.Element => {
           <StaticImage
             src="../../assets/images/404.jpg"
             alt="404"
-            className={classes.image}
+            style={{ height: "100%" }}
           />
         }
       />

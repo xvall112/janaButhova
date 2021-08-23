@@ -1,7 +1,7 @@
 {
-  "name": "DenisaLukas",
+  "name": "janabuthova",
   "private": true,
-  "description": "Cestovni blog",
+  "description": "funkcni a osobni trener",
   "version": "0.1.0",
   "author": "Lukas Valta <valtalukas@sezanm.cz>",
   "dependencies": {
@@ -27,6 +27,7 @@
     "gatsby-plugin-resolve-src": "^2.1.0",
     "gatsby-plugin-sass": "^4.9.0",
     "gatsby-plugin-sharp": "^3.9.0",
+    "gatsby-plugin-sitemap": "^4.7.0",
     "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-source-contentful": "^5.9.0",
     "gatsby-source-filesystem": "^3.9.0",

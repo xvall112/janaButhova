@@ -94,7 +94,7 @@ const CardReview = ({
               <ListItem className="card-review__list-item">
                 <ListItemAvatar className="card-review__list-item-avatar">
                   <Avatar
-                    {...authorPhoto}
+                    src={authorPhoto}
                     alt={authorName}
                     className="card-review__avatar"
                   />

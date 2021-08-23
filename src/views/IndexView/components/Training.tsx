@@ -70,12 +70,7 @@ const Training = ({ data }) => {
                         </Box>
                       </Typography>
                       <Box mt={2} textAlign="center">
-                        <Button
-                          variant="outlined"
-                          color="primary"
-                          size="large"
-                          onClick={() => navigate(`/${item.slug}`)}
-                        >
+                        <Button variant="outlined" color="primary" size="large">
                           více
                         </Button>
                       </Box>

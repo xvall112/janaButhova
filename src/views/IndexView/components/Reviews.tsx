@@ -12,6 +12,11 @@ const query = graphql`
       nodes {
         text
         jmeno
+        fotka {
+          file {
+            url
+          }
+        }
       }
     }
   }
@@ -50,6 +55,7 @@ const Reviews = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                   variant="contained"
                   text={review.text}
                   authorName={review.jmeno}
+                  authorPhoto={review.fotka && review.fotka.file.url}
                 />
               )
             )}
