@@ -1,18 +1,17 @@
 import * as React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import { makeStyles, Divider } from "@material-ui/core"
+import { graphql, useStaticQuery } from "gatsby"
+import { makeStyles } from "@material-ui/core"
 
 //components
-import { Hidden } from "@material-ui/core"
 import Hero from "./components/Hero"
 import AboutMe from "./components/AboutMe"
 import Training from "./components/Training"
 import Price from "./components/Price"
 import Video from "./components/Video"
 import Reviews from "./components/Reviews"
-import Section from "../../components/organisms/Section/Section"
+
 import SectionAlternate from "../../components/organisms/SectionAlternate/SectionAlternate"
-import { video, pricings, reviews, TreninkTime } from "./components/data"
+import { pricings, reviews } from "./components/data"
 
 const query = graphql`
   {
@@ -65,7 +64,7 @@ const IndexPage = () => {
         <Training data={data} />
       </div>
       <SectionAlternate primary id="price">
-        <Price data={pricings} treninkData={TreninkTime} />
+        <Price price={pricings} />
       </SectionAlternate>
       <SectionAlternate id="video">
         <Video />

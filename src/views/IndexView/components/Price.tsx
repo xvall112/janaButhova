@@ -1,9 +1,24 @@
 import React from "react"
 import clsx from "clsx"
+import { graphql, useStaticQuery } from "gatsby"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { useMediaQuery, Grid, Typography, Box } from "@material-ui/core"
 
 import { CardBasePrice, CardBase } from "components/organisms"
+
+export const query = graphql`
+  {
+    allContentfulRozvrh {
+      nodes {
+        id
+        kde
+        kdy {
+          kdy
+        }
+      }
+    }
+  }
+`
 
 const useStyles = makeStyles(theme => ({
   cardTreninky: {
@@ -11,7 +26,8 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Price = ({ data, treninkData, className, ...rest }) => {
+const Price = ({ price, className, ...rest }) => {
+  const data = useStaticQuery(query)
   const classes = useStyles()
   const theme = useTheme()
   const isMd = useMediaQuery(theme.breakpoints.up("md"), {
@@ -21,7 +37,7 @@ const Price = ({ data, treninkData, className, ...rest }) => {
   return (
     <div className={clsx(className)} {...rest}>
       <Grid container spacing={2}>
-        {data.map((item: any, index: number) => {
+        {price.map((item: any, index: number) => {
           return (
             <Grid item xs={12} md={4} data-aos="fade-up" key={index}>
               <CardBasePrice
@@ -40,13 +56,20 @@ const Price = ({ data, treninkData, className, ...rest }) => {
               <Typography variant="h4" color="secondary">
                 Tréninky
               </Typography>
-              {treninkData.map((item, index) => {
+              {data.allContentfulRozvrh.nodes.map((item, index) => {
                 return (
                   <Box key={index} mt={2}>
                     <Typography variant="h5" color="secondary">
-                      {item.title}
+                      {item.kde}
                     </Typography>
-                    {item.days.map((item, index) => {
+                    <Box key={index}>
+                      <pre>
+                        <Typography variant="body1" color="secondary">
+                          {item.kdy.kdy}
+                        </Typography>
+                      </pre>
+                    </Box>
+                    {/* {item.days.map((item, index) => {
                       return (
                         <Box key={index}>
                           <Typography variant="body1" color="secondary">
@@ -54,7 +77,7 @@ const Price = ({ data, treninkData, className, ...rest }) => {
                           </Typography>
                         </Box>
                       )
-                    })}
+                    })} */}
                   </Box>
                 )
               })}

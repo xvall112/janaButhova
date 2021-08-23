@@ -75,7 +75,7 @@ export default function WithLayout({
   }, [mountedComponent])
   const classes = useStyles()
   return (
-    <ThemeProvider theme={getTheme(themeMode)}>
+    <ThemeProvider theme={getTheme("light")}>
       <CssBaseline />
       <Helmet>
         <script
