@@ -21,81 +21,6 @@ export const navigation = [
   { title: "kontakt", slug: "#contact" },
 ]
 
-export const reviews = [
-  {
-    authorPhoto: {
-      src:
-        "https://assets.maccarianagency.com/the-front/photos/people/veronica-adams.jpg",
-      srcSet:
-        "https://assets.maccarianagency.com/the-front/photos/people/veronica-adams@2x.jpg 2x",
-    },
-    authorName: "Veronica Adams",
-    authorOccupation: "Growth Marketer, Crealytics",
-    feedback:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    authorPhoto: {
-      src:
-        "https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini.jpg",
-      srcSet:
-        "https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini@2x.jpg 2x",
-    },
-    authorName: "Akachi Luccini",
-    authorOccupation: "Lead Generation, Alternative Capital",
-    feedback:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    authorPhoto: {
-      src:
-        "https://assets.maccarianagency.com/the-front/photos/people/jack-smith.jpg",
-      srcSet:
-        "https://assets.maccarianagency.com/the-front/photos/people/jack-smith@2x.jpg 2x",
-    },
-    authorName: "Jack Smith",
-    authorOccupation: "Head of Operations, Parkfield Commerce",
-    feedback:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    authorPhoto: {
-      src:
-        "https://assets.maccarianagency.com/the-front/photos/people/veronica-adams.jpg",
-      srcSet:
-        "https://assets.maccarianagency.com/the-front/photos/people/veronica-adams@2x.jpg 2x",
-    },
-    authorName: "Veronica Adams",
-    authorOccupation: "Growth Marketer, Crealytics",
-    feedback:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    authorPhoto: {
-      src:
-        "https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini.jpg",
-      srcSet:
-        "https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini@2x.jpg 2x",
-    },
-    authorName: "Akachi Luccini",
-    authorOccupation: "Lead Generation, Alternative Capital",
-    feedback:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    authorPhoto: {
-      src:
-        "https://assets.maccarianagency.com/the-front/photos/people/jack-smith.jpg",
-      srcSet:
-        "https://assets.maccarianagency.com/the-front/photos/people/jack-smith@2x.jpg 2x",
-    },
-    authorName: "Jack Smith",
-    authorOccupation: "Head of Operations, Parkfield Commerce",
-    feedback:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-]
-
 export const contact = {
   email: "jana.buthova@gmail.com",
   phone: "703681841",
@@ -131,15 +56,15 @@ export const pricings = [
       {
         title: "OUTDOOR",
         price: [
-          { titlePrice: "60 minut", cost: 100 },
-          { titlePrice: "10 + 1 vstup", cost: 1000 },
+          { titlePrice: "75 minut", cost: 120 },
+          { titlePrice: "10 + 1 vstup", cost: 1200 },
         ],
       },
       {
         title: "INDOOR",
         price: [
-          { titlePrice: "60 minut", cost: 100 },
-          { titlePrice: "10 + 1 vstup", cost: 1000 },
+          { titlePrice: "75 minut", cost: 120 },
+          { titlePrice: "10 + 1 vstup", cost: 1200 },
         ],
       },
     ],
