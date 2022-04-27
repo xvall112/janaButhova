@@ -36,14 +36,14 @@ export const pricings = [
       {
         title: "1 KLIENT",
         price: [
-          { titlePrice: "60 minut", cost: 500 },
-          { titlePrice: "90 minut", cost: 550 },
-          { titlePrice: "120 minut", cost: 650 },
+          { titlePrice: "60 minut", cost: 550 },
+          { titlePrice: "90 minut", cost: 600 },
+          { titlePrice: "120 minut", cost: 700 },
         ],
       },
       {
         title: "2 KLIENTI (malá skupina)",
-        price: [{ titlePrice: "60 minut", cost: 900 }],
+        price: [{ titlePrice: "60 minut", cost: 950 }],
       },
     ],
     button: "chci trénovat",
