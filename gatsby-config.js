@@ -43,8 +43,8 @@ module.exports = {
         name: `Jana Búthová | FUNKČNÍ & OSOBNÍ TRENÉR`,
         short_name: `Jana Búthová`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000`,
+        theme_color: `#000`,
         display: `minimal-ui`,
         icon: `src/assets/images/LOGOo.png`, // This path is relative to the root of the site.
       },
