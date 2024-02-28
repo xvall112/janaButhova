@@ -36,15 +36,15 @@ export const pricings = [
       {
         title: "1 KLIENT",
         price: [
-          { titlePrice: "60 minut", cost: 550 },
-          { titlePrice: "90 minut", cost: 600 },
-          { titlePrice: "120 minut", cost: 700 },
+          { titlePrice: "60 minut", cost: 600 },
+          { titlePrice: "90 minut", cost: 700 },
+          { titlePrice: "120 minut", cost: 850 },
         ],
       },
-      {
-        title: "2 KLIENTI (malá skupina)",
-        price: [{ titlePrice: "60 minut", cost: 950 }],
-      },
+      // {
+      //   title: "2 KLIENTI (malá skupina)",
+      //   price: [{ titlePrice: "60 minut", cost: 950 }],
+      // },
     ],
     button: "chci trénovat",
   },
@@ -56,19 +56,38 @@ export const pricings = [
       {
         title: "OUTDOOR",
         price: [
-          { titlePrice: "75 minut", cost: 120 },
-          { titlePrice: "10 + 1 vstup", cost: 1200 },
+          { titlePrice: "75 minut", cost: 140 },
+          { titlePrice: "5 vstup", cost: 600 },
+          { titlePrice: "10 + 1 vstup", cost: 1400 },
         ],
       },
       {
         title: "INDOOR",
         price: [
-          { titlePrice: "75 minut", cost: 120 },
-          { titlePrice: "10 + 1 vstup", cost: 1200 },
+          { titlePrice: "75 minut", cost: 140 },
+          { titlePrice: "5 vstup", cost: 600 },
+          { titlePrice: "10 + 1 vstup", cost: 1400 },
         ],
       },
     ],
     button: "chci trénovat",
+  },
+
+  {
+    title: "DĚTSKÉ CVIČENÍ",
+    subtitle: "Tréninky probíhají v Dolních Hbitech",
+    features: [
+      {
+        title: "1 DÍTĚ",
+        price: [
+          { titlePrice: "60 minut", cost: 150 },
+          { titlePrice: "3x vstup", cost: 450 },
+          { titlePrice: "5x vstup", cost: 750 },
+          { titlePrice: "10 + 1 vstup", cost: 1500 },
+        ],
+      },
+    ],
+    button: "mám zájem",
   },
 
   {
