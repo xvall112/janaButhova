@@ -18,13 +18,18 @@ export default function AlertDialog({ currentPath }) {
 
   return (
     <>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button
+        variant="outlined"
+        size="large"
+        color="primary"
+        onClick={handleClickOpen}
+      >
         Dokumenty
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
-        maxWidth="md"
+        width={{ xs: 300, md: 450 }}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -38,8 +43,7 @@ export default function AlertDialog({ currentPath }) {
                     variant="outlined"
                     color="primary"
                     component={"a"}
-                    href="../../../assets/documents/organizationInformation.docx"
-                    sx={{ minWidth: { xs: 250, md: 400 } }}
+                    href="/src/assets/documents/organizationInformation.docx"
                     fullWidth
                   >
                     Organizační informace
@@ -50,8 +54,7 @@ export default function AlertDialog({ currentPath }) {
                   variant="outlined"
                   color="primary"
                   component={"a"}
-                  href="../../../assets/documents/certifikat_jana_buthova.jpg"
-                  sx={{ minWidth: { xs: 250, md: 400 } }}
+                  href="/src/assets/documents/certifikat_jana_buthova.jpg"
                   fullWidth
                 >
                   Osvědčení

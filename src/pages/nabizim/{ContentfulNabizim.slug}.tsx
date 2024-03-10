@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Training = props => {
+  console.log(props.location.pathname)
   const classes = useStyles()
   const Offers = () => {
     return (
@@ -113,11 +114,10 @@ const Training = props => {
 
                 <Box
                   display="flex"
-                  flexDirection={{ xs: "column", md: "row" }}
+                  flexDirection={{ xs: "column", sm: "row" }}
                   alignItems="center"
                   justifyContent="center"
                   mt={4}
-                  gridGap={2}
                 >
                   <Button
                     variant="contained"
