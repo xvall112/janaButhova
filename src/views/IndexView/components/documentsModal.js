@@ -1,10 +1,10 @@
 import * as React from "react"
-import Dialog from "@mui/material/Dialog"
-import Button from "@mui/material/Button"
-import DialogContent from "@mui/material/DialogContent"
-import DialogContentText from "@mui/material/DialogContentText"
-import DialogTitle from "@mui/material/DialogTitle"
-import Grid from "@mui/material/Grid"
+import Dialog from "@material-ui/core/Dialog"
+import Button from "@material-ui/core/Button"
+import DialogContent from "@material-ui/core/DialogContent"
+import DialogContentText from "@material-ui/core/DialogContentText"
+import DialogTitle from "@material-ui/core/DialogTitle"
+import Grid from "@material-ui/core/Grid"
 
 export default function AlertDialog({ currentPath }) {
   const [open, setOpen] = React.useState(false)
