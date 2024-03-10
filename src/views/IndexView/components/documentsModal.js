@@ -19,6 +19,7 @@ export default function AlertDialog({ currentPath }) {
   return (
     <>
       <Button
+        ml={2}
         variant="outlined"
         size="large"
         color="primary"
@@ -33,32 +34,35 @@ export default function AlertDialog({ currentPath }) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">Dokumenty</DialogTitle>
+        <DialogTitle color="secondary">Dokumenty</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <Grid container direction="column" spacing={2}>
               <Grid item>
-                {currentPath === "/nabizim/detske-cviceni" && (
+                {currentPath == "/nabizim/detske-cviceni" && (
                   <Button
-                    variant="outlined"
+                    variant="primary"
                     color="primary"
                     component={"a"}
                     href="/src/assets/documents/organizationInformation.docx"
                     fullWidth
+                    download
                   >
                     Organizační informace
                   </Button>
                 )}
-
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  component={"a"}
-                  href="/src/assets/documents/certifikat_jana_buthova.jpg"
-                  fullWidth
-                >
-                  Osvědčení
-                </Button>
+                <Box mt={2}>
+                  <Button
+                    variant="primary"
+                    color="primary"
+                    component={"a"}
+                    href="/src/assets/documents/certifikat_jana_buthova.jpg"
+                    fullWidth
+                    download
+                  >
+                    Osvědčení
+                  </Button>
+                </Box>
               </Grid>
             </Grid>
           </DialogContentText>

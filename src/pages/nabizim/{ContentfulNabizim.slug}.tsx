@@ -127,7 +127,9 @@ const Training = props => {
                   >
                     Jdu do toho!
                   </Button>
-                  <DocumentsModal currentPath={props.location.pathname} />
+                  <Box mt={{ xs: 2, sm: 0 }} ml={{ sm: 2 }}>
+                    <DocumentsModal currentPath={props.location.pathname} />
+                  </Box>
                 </Box>
               </>
             </Section>
