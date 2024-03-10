@@ -12,7 +12,7 @@ import NextOffer from "../../components/NextOffer"
 import DocumentsModal from "../../views/IndexView/components/documentsModal"
 //material UI
 import { makeStyles } from "@material-ui/core/styles"
-import { Button, Grid, Box, Typography } from "@material-ui/core"
+import { Button, Grid, Box, Stack, Typography } from "@material-ui/core"
 
 export const query = graphql`
   query($slug: String!) {
@@ -111,12 +111,13 @@ const Training = props => {
                   />
                 </Typography>
 
-                <Box
+                <Stack
                   display="flex"
-                  flexDirection="row"
+                  flexDirection={{ xs: "column", md: "row" }}
                   alignItems="center"
                   justifyContent="center"
                   mt={4}
+                  spacing={2}
                 >
                   <Button
                     variant="contained"
@@ -126,8 +127,8 @@ const Training = props => {
                   >
                     Jdu do toho!
                   </Button>
-                  <DocumentsModal currentPath={props.location.pathName} />
-                </Box>
+                  <DocumentsModal currentPath={props.location.pathname} />
+                </Stack>
               </>
             </Section>
           </Grid>

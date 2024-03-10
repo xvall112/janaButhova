@@ -18,17 +18,13 @@ export default function AlertDialog({ currentPath }) {
 
   return (
     <>
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={handleClickOpen}
-        fullWidth
-      >
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Dokumenty
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
+        maxWidth="md"
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -39,22 +35,24 @@ export default function AlertDialog({ currentPath }) {
               <Grid item>
                 {currentPath === "/nabizim/detske-cviceni" && (
                   <Button
-                    variant="contained"
-                    color="secondary"
+                    variant="outlined"
+                    color="primary"
                     component={"a"}
                     href="../../../assets/documents/organizationInformation.docx"
                     sx={{ minWidth: { xs: 250, md: 400 } }}
+                    fullWidth
                   >
                     Organizační informace
                   </Button>
                 )}
 
                 <Button
-                  variant="contained"
-                  color="secondary"
+                  variant="outlined"
+                  color="primary"
                   component={"a"}
                   href="../../../assets/documents/certifikat_jana_buthova.jpg"
                   sx={{ minWidth: { xs: 250, md: 400 } }}
+                  fullWidth
                 >
                   Osvědčení
                 </Button>
