@@ -5,6 +5,7 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import Grid from "@material-ui/core/Grid"
+import Box from "@material-ui/core/Grid"
 
 export default function AlertDialog({ currentPath }) {
   const [open, setOpen] = React.useState(false)
