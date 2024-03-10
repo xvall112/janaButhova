@@ -9,6 +9,7 @@ import WithLayout from "../../../WithLayout"
 import { Section } from "components/organisms"
 import ContentfulBody from "../../components/contentfulBody"
 import NextOffer from "../../components/NextOffer"
+import DocumentsModal from "../../views/IndexView/components/documentsModal"
 //material UI
 import { makeStyles } from "@material-ui/core/styles"
 import { Button, Grid, Box, Typography } from "@material-ui/core"
@@ -110,7 +111,13 @@ const Training = props => {
                   />
                 </Typography>
 
-                <Box textAlign="center" mt={4}>
+                <Box
+                  display="flex"
+                  flexDirection="row"
+                  alignItems="center"
+                  justifyContent="center"
+                  mt={4}
+                >
                   <Button
                     variant="contained"
                     color="primary"
@@ -119,6 +126,7 @@ const Training = props => {
                   >
                     Jdu do toho!
                   </Button>
+                  <DocumentsModal currentPath={props.location.pathName} />
                 </Box>
               </>
             </Section>
