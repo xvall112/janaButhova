@@ -26,6 +26,13 @@ export const query = graphql`
         title
       }
       title
+      documents {
+        title
+        file {
+          fileName
+          url
+        }
+      }
     }
   }
 `
@@ -43,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Training = props => {
-  console.log(props.location.pathname)
+  const { documents } = props.data.contentfulNabizim
   const classes = useStyles()
   const Offers = () => {
     return (
@@ -124,12 +131,15 @@ const Training = props => {
                     color="primary"
                     size="large"
                     onClick={() => scrollTo("#contact")}
+                    fullWidth
                   >
                     Jdu do toho!
                   </Button>
-                  <Box mt={{ xs: 2, sm: 0 }} ml={{ sm: 2 }}>
-                    <DocumentsModal currentPath={props.location.pathname} />
-                  </Box>
+                  {documents && (
+                    <Box mt={{ xs: 2, sm: 0 }} ml={{ sm: 2 }}>
+                      <DocumentsModal documents={documents} />
+                    </Box>
+                  )}
                 </Box>
               </>
             </Section>

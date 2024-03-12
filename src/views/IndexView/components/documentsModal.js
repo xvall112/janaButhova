@@ -6,8 +6,9 @@ import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import Grid from "@material-ui/core/Grid"
 import Box from "@material-ui/core/Grid"
+import { Typography } from "@material-ui/core"
 
-export default function AlertDialog({ currentPath }) {
+export default function AlertDialog({ documents }) {
   const [open, setOpen] = React.useState(false)
   const handleClickOpen = () => {
     setOpen(true)
@@ -21,52 +22,45 @@ export default function AlertDialog({ currentPath }) {
     <>
       <Button
         ml={2}
-        variant="outlined"
+        variant="contained"
         size="large"
         color="primary"
         onClick={handleClickOpen}
+        fullWidth
       >
         Dokumenty
       </Button>
       <Dialog
         open={open}
+        maxWidth="sm"
         onClose={handleClose}
-        width={{ xs: 300, md: 450 }}
+        fullWidth
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle color="secondary">Dokumenty</DialogTitle>
+        <DialogTitle>
+          <Typography variant="h5" color="secondary">
+            Dokumenty
+          </Typography>
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            <Grid container direction="column" spacing={2}>
-              <Grid item>
-                {currentPath == "/nabizim/detske-cviceni" && (
-                  <Button
-                    variant="primary"
-                    color="primary"
-                    component={"a"}
-                    href="/src/assets/documents/organizationInformation.docx"
-                    fullWidth
-                    download
-                  >
-                    Organizační informace
-                  </Button>
-                )}
-                <Box mt={2}>
-                  <Button
-                    variant="primary"
-                    color="primary"
-                    component={"a"}
-                    href="/src/assets/documents/certifikat_jana_buthova.jpg"
-                    fullWidth
-                    download
-                  >
-                    Osvědčení
-                  </Button>
-                </Box>
+          <Grid container direction="column" spacing={2}>
+            {documents?.map((document, index) => (
+              <Grid item xs={12} key={index}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  component={"a"}
+                  href={document.file.url}
+                  fullWidth
+                  download
+                >
+                  {document.title}
+                </Button>
               </Grid>
-            </Grid>
-          </DialogContentText>
+            ))}
+          </Grid>
         </DialogContent>
       </Dialog>
     </>

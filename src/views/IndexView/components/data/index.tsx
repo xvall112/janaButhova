@@ -65,7 +65,7 @@ export const pricings = [
         title: "INDOOR",
         price: [
           { titlePrice: "75 minut", cost: 140 },
-          { titlePrice: "5 vstup", cost: 600 },
+          { titlePrice: "5 vstup", cost: 700 },
           { titlePrice: "10 + 1 vstup", cost: 1400 },
         ],
       },
