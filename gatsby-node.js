@@ -10,6 +10,9 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ContentfulNabizim implements Node {
       documents: [ContentfulAsset] @link(from: "documents___NODE")
     }
+    type ContentfulYoutubeVideo implements Node {
+      linkNaVideo: String
+    }
   `)
 }
 

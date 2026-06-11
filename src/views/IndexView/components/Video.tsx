@@ -35,6 +35,14 @@ const Video = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
     defaultMatches: true,
   })
 
+  const nodes = (data?.allContentfulYoutubeVideo?.nodes || []).filter(
+    (item: any) => item?.linkNaVideo
+  )
+
+  if (nodes.length === 0) {
+    return <></>
+  }
+
   return (
     <div className={classes.root} {...rest}>
       <Grid container>
@@ -49,7 +57,7 @@ const Video = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
         </Grid>
         <Grid item xs={12}>
           <SwiperComponent
-            data={data.allContentfulYoutubeVideo.nodes.map(
+            data={nodes.map(
               (item: any, index: number) => {
                 return (
                   <ReactPlayer
