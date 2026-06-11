@@ -18,7 +18,7 @@ import { CardBasePrice, CardBase } from "components/organisms"
 
 export const query = graphql`
   {
-    rozvrh: allContentfulRozvrh {
+    rozvrh: allContentfulRozvrh(sort: { fields: kde, order: ASC }) {
       nodes {
         id
         kde
