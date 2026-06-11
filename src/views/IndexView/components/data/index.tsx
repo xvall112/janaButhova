@@ -53,42 +53,42 @@ export const pricings = [
     title: "SKUPINOVÝ TRÉNINK",
     subtitle: "Tréninky probíhají v Dolních Hbitech",
     features: [
-      {
-        title: "OUTDOOR",
+       {
+        title: "INDOOR",
         price: [
-          { titlePrice: "75 minut", cost: 140 },
-          { titlePrice: "5 vstup", cost: 700 },
-          { titlePrice: "10 + 1 vstup", cost: 1400 },
+          { titlePrice: "60 minut", cost: 200 },
+          { titlePrice: "5 vstup", cost: 1000 },
+          { titlePrice: "10 + 1 vstup", cost: 2000 },
         ],
       },
       {
-        title: "INDOOR",
+        title: "OUTDOOR",
         price: [
-          { titlePrice: "75 minut", cost: 140 },
-          { titlePrice: "5 vstup", cost: 700 },
-          { titlePrice: "10 + 1 vstup", cost: 1400 },
+          { titlePrice: "60 minut", cost: 200 },
+          { titlePrice: "5 vstup", cost: 1000 },
+          { titlePrice: "10 + 1 vstup", cost: 2000 },
         ],
       },
     ],
     button: "chci trénovat",
   },
 
-  {
-    title: "DĚTSKÉ CVIČENÍ",
-    subtitle: "Tréninky probíhají v Dolních Hbitech",
-    features: [
-      {
-        title: "1 DÍTĚ",
-        price: [
-          { titlePrice: "60 minut", cost: 150 },
-          { titlePrice: "3x vstup", cost: 450 },
-          { titlePrice: "5x vstup", cost: 750 },
-          { titlePrice: "10 + 1 vstup", cost: 1500 },
-        ],
-      },
-    ],
-    button: "mám zájem",
-  },
+  // {
+  //   title: "DĚTSKÉ CVIČENÍ",
+  //   subtitle: "Tréninky probíhají v Dolních Hbitech",
+  //   features: [
+  //     {
+  //       title: "1 DÍTĚ",
+  //       price: [
+  //         { titlePrice: "60 minut", cost: 150 },
+  //         { titlePrice: "3x vstup", cost: 450 },
+  //         { titlePrice: "5x vstup", cost: 750 },
+  //         { titlePrice: "10 + 1 vstup", cost: 1500 },
+  //       ],
+  //     },
+  //   ],
+  //   button: "mám zájem",
+  // },
 
   {
     title: "PORADENSTVÍ",
@@ -116,7 +116,7 @@ export const pricings = [
   },
 ]
 
-export const TreninkTime = [
-  { title: "Indoor", days: ["ÚT: 17:15 - 18:15", " ČT: 17:15 - 18:15 "] },
-  { title: "Outoor", days: ["ÚT: 17:15 - 18:15", " ČT: 17:15 - 18:15 "] },
-]
+// export const TreninkTime = [
+//   { title: "Indoor", days: ["ÚT: 17:15 - 18:15", " ČT: 17:15 - 18:15 "] },
+//   { title: "Outoor", days: ["ÚT: 17:15 - 18:15", " ČT: 17:15 - 18:15 "] },
+// ]
