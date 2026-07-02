@@ -4,4 +4,6 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+// Load the full Font Awesome CSS (webfonts + glyph mappings) so the
+// class-based icons (`<i className="fas fa-check">`) actually render.
+import "@fortawesome/fontawesome-free/css/all.min.css"

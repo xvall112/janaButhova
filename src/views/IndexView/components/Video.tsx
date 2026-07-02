@@ -5,6 +5,9 @@ import { useMediaQuery, Grid, Box } from "@material-ui/core"
 import { SectionHeader } from "components/molecules"
 import ReactPlayer from "react-player/youtube"
 import SwiperComponent from "../../../components/swiper"
+import InstagramEmbed, {
+  isInstagramUrl,
+} from "../../../components/InstagramEmbed"
 
 const query = graphql`
   {
@@ -57,18 +60,22 @@ const Video = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
         </Grid>
         <Grid item xs={12}>
           <SwiperComponent
-            data={nodes.map(
-              (item: any, index: number) => {
+            data={nodes.map((item: any, index: number) => {
+              if (isInstagramUrl(item.linkNaVideo)) {
                 return (
-                  <ReactPlayer
-                    url={item.linkNaVideo}
-                    controls={true}
-                    width="100%"
-                    height="200px"
-                  />
+                  <InstagramEmbed key={index} url={item.linkNaVideo} />
                 )
               }
-            )}
+              return (
+                <ReactPlayer
+                  key={index}
+                  url={item.linkNaVideo}
+                  controls={true}
+                  width="100%"
+                  height="200px"
+                />
+              )
+            })}
           />
         </Grid>
       </Grid>

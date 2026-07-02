@@ -8,6 +8,7 @@ import AboutMe from "./components/AboutMe"
 import Training from "./components/Training"
 import Price from "./components/Price"
 import Video from "./components/Video"
+import Gallery from "./components/Gallery"
 import Reviews from "./components/Reviews"
 
 import SectionAlternate from "../../components/organisms/SectionAlternate/SectionAlternate"
@@ -49,6 +50,9 @@ const useStyles = makeStyles(theme => ({
       padding: theme.spacing(12, 2),
     },
   },
+  trainingSection: {
+    background: theme.palette.secondary.main,
+  },
 }))
 
 const IndexPage = () => {
@@ -60,7 +64,7 @@ const IndexPage = () => {
       <SectionAlternate id="aboutMe">
         <AboutMe />
       </SectionAlternate>
-      <div id="training">
+      <div id="training" className={classes.trainingSection}>
         <Training data={data} />
       </div>
       <SectionAlternate primary id="price">
@@ -68,6 +72,9 @@ const IndexPage = () => {
       </SectionAlternate>
       <SectionAlternate id="video">
         <Video />
+      </SectionAlternate>
+      <SectionAlternate id="gallery">
+        <Gallery />
       </SectionAlternate>
       <SectionAlternate secondary id="review">
         <Reviews data={reviews} />
