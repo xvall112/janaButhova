@@ -25,6 +25,11 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 0,
     paddingBottom: 0,
   },
+  videoTile: {
+    border: `2px solid ${theme.palette.primary.main}`,
+    borderRadius: theme.spacing(1),
+    overflow: "hidden",
+  },
 }))
 
 const Video = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
@@ -55,25 +60,26 @@ const Video = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
             subtitle=""
             subtitleColor="primary"
             fadeUp
+            accent
             align="left"
           />
         </Grid>
         <Grid item xs={12}>
           <SwiperComponent
             data={nodes.map((item: any, index: number) => {
-              if (isInstagramUrl(item.linkNaVideo)) {
-                return (
-                  <InstagramEmbed key={index} url={item.linkNaVideo} />
-                )
-              }
               return (
-                <ReactPlayer
-                  key={index}
-                  url={item.linkNaVideo}
-                  controls={true}
-                  width="100%"
-                  height="200px"
-                />
+                <div key={index} className={classes.videoTile}>
+                  {isInstagramUrl(item.linkNaVideo) ? (
+                    <InstagramEmbed url={item.linkNaVideo} />
+                  ) : (
+                    <ReactPlayer
+                      url={item.linkNaVideo}
+                      controls={true}
+                      width="100%"
+                      height="200px"
+                    />
+                  )}
+                </div>
               )
             })}
           />

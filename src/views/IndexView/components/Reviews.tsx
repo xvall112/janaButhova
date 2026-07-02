@@ -43,6 +43,7 @@ const Reviews = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
             subtitle=""
             subtitleColor="primary"
             fadeUp
+            accent
             align="left"
           />
         </Grid>

@@ -46,10 +46,16 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.alternate.main,
+    borderRadius: 12,
+    transition: "transform .25s ease, box-shadow .25s ease",
+    "&:hover": {
+      transform: "translateY(-2px)",
+      boxShadow: "0 10px 24px -8px rgba(255, 223, 88, 0.5)",
+    },
   },
   icon: {
     background: "transparent",
-    borderRadius: 0,
+    borderRadius: 12,
   },
 }))
 
@@ -85,7 +91,7 @@ const SocialContact = () => {
             <Grid item>
               <a href={contact.facebook}>
                 <ListItemAvatar>
-                  <Avatar variant="square" className={classes.avatar}>
+                  <Avatar variant="rounded" className={classes.avatar}>
                     <FacebookIcon />
                   </Avatar>
                 </ListItemAvatar>
@@ -94,7 +100,7 @@ const SocialContact = () => {
             <Grid item>
               <a href={contact.instagram}>
                 <ListItemAvatar>
-                  <Avatar variant="square" className={classes.avatar}>
+                  <Avatar variant="rounded" className={classes.avatar}>
                     <InstagramIcon />
                   </Avatar>
                 </ListItemAvatar>
@@ -103,7 +109,7 @@ const SocialContact = () => {
             <Grid item>
               <a href={contact.youtube}>
                 <ListItemAvatar>
-                  <Avatar variant="square" className={classes.avatar}>
+                  <Avatar variant="rounded" className={classes.avatar}>
                     <YouTubeIcon />
                   </Avatar>
                 </ListItemAvatar>
@@ -121,7 +127,7 @@ const SocialContact = () => {
               className={classes.listItem}
             >
               <ListItemAvatar>
-                <Avatar variant="square" className={classes.avatar}>
+                <Avatar variant="rounded" className={classes.avatar}>
                   <PhoneIcon />
                 </Avatar>
               </ListItemAvatar>
@@ -150,7 +156,7 @@ const SocialContact = () => {
               className={classes.listItem}
             >
               <ListItemAvatar>
-                <Avatar variant="square" className={classes.avatar}>
+                <Avatar variant="rounded" className={classes.avatar}>
                   <MailOutlineIcon />
                 </Avatar>
               </ListItemAvatar>

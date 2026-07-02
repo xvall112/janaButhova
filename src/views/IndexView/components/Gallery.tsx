@@ -45,19 +45,50 @@ const useStyles = makeStyles(theme => ({
   root: {},
   tile: {
     cursor: "pointer",
+    "& > div": {
+      borderRadius: 18,
+      overflow: "hidden",
+    },
     "& img": {
-      transition: "all 0.5s ease-out,-webkit-transform .5s ease-in-out",
+      transition: "transform .6s cubic-bezier(0.16, 1, 0.3, 1)",
       transform: "scale(1.0)",
     },
-    "&:hover": {
-      "& img": {
-        transition: "all 0.5s ease-out,-webkit-transform .5s ease-in-out",
-        transform: "scale(1.1)",
-      },
+    "&:hover img": {
+      transform: "scale(1.08)",
     },
+    "&:hover $overlay": {
+      background:
+        "linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.8) 100%)",
+    },
+    "&:hover $accent": {
+      width: 90,
+    },
+  },
+  overlay: {
+    gridArea: "1/1",
+    position: "relative",
+    height: "40vh",
+    zIndex: 100,
+    placeItems: "center",
+    display: "grid",
+    transition: "background .5s ease",
+    background:
+      "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.7) 100%)",
+  },
+  accent: {
+    width: 48,
+    height: 4,
+    borderRadius: 4,
+    background: theme.palette.primary.main,
+    margin: theme.spacing(1.5, "auto", 1),
+    transition: "width .4s cubic-bezier(0.16, 1, 0.3, 1)",
   },
   thumb: {
     cursor: "pointer",
+    "& .gatsby-image-wrapper": {
+      borderRadius: 12,
+      overflow: "hidden",
+    },
   },
   dialogPaper: {
     background: theme.palette.primary.main,
@@ -95,6 +126,18 @@ const useStyles = makeStyles(theme => ({
   lightboxClose: {
     right: theme.spacing(1),
     top: theme.spacing(1),
+  },
+  lightboxTitle: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 5,
+    color: "white",
+    textAlign: "center",
+    padding: theme.spacing(2, 8),
+    background:
+      "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%)",
   },
 }))
 
@@ -143,6 +186,7 @@ const Gallery = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
             subtitle=""
             subtitleColor="primary"
             fadeUp
+            accent
             align="left"
           />
         </Grid>
@@ -158,17 +202,7 @@ const Gallery = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
               onClick={() => setOpenCategory(category)}
             >
               <div style={{ display: "grid" }}>
-                <div
-                  style={{
-                    gridArea: "1/1",
-                    position: "relative",
-                    height: "40vh",
-                    zIndex: 100,
-                    placeItems: "center",
-                    display: "grid",
-                    backgroundColor: "rgba(0, 0, 0, 0.4)",
-                  }}
-                >
+                <div className={classes.overlay}>
                   <Grid
                     container
                     direction="column"
@@ -186,6 +220,7 @@ const Gallery = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                       >
                         {category.nazev}
                       </Box>
+                      <div className={classes.accent} />
                       <Box fontSize={18} textAlign="center" color="white">
                         {category.fotky.length} fotek
                       </Box>
@@ -286,6 +321,11 @@ const Gallery = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
             >
               <CloseIcon />
             </IconButton>
+            {photos[selectedIndex].title && (
+              <Typography variant="subtitle1" className={classes.lightboxTitle}>
+                {photos[selectedIndex].title}
+              </Typography>
+            )}
           </DialogContent>
         )}
       </Dialog>

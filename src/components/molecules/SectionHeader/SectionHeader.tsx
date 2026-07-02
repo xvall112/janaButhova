@@ -16,6 +16,13 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontWeight: "bold",
   },
+  accent: {
+    height: 4,
+    width: 64,
+    borderRadius: 4,
+    background: `linear-gradient(90deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
+    marginTop: theme.spacing(1.5),
+  },
   cta: {
     marginLeft: theme.spacing(1),
     "&:first-child": {
@@ -40,6 +47,7 @@ const SectionHeader = ({
   fadeUp,
   align,
   ctaGroup,
+  accent,
   disableGutter,
   titleClasses,
   className,
@@ -114,6 +122,15 @@ const SectionHeader = ({
         >
           {title}
         </Typography>
+        {accent && (
+          <div
+            className={classes.accent}
+            style={{
+              marginLeft: align === "center" ? "auto" : align === "right" ? "auto" : 0,
+              marginRight: align === "center" ? "auto" : 0,
+            }}
+          />
+        )}
       </Grid>
       {subtitle && (
         <Grid item xs={12} className="section-header__subtitle-wrapper">

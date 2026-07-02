@@ -18,9 +18,7 @@ const useStyles = makeStyles(theme => ({
     "& .MuiFormHelperText-root": {
       backgroundColor: theme.palette.alternate.main,
       margin: 0,
-    },
-    "& .MuiInputBase-root": {
-      borderRadius: 0,
+      marginTop: theme.spacing(0.5),
     },
   },
 
@@ -30,16 +28,34 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       marginTop: theme.spacing(10),
     },
+    // Keep the whole outlined input (fill + border) inside one rounded,
+    // clipped container so no square white corners poke out.
     "& .MuiTextField-root": {
+      background: "transparent",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: 12,
       background: theme.palette.background.paper,
+      overflow: "hidden",
+      transition: "box-shadow .25s ease",
     },
     "& .MuiOutlinedInput-input": {
-      background: theme.palette.background.paper,
+      background: "transparent",
       color: theme.palette.alternate.main,
     },
     "& .MuiOutlinedInput-notchedOutline": {
-      boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.1)",
-      border: "solid 1px rgba(0, 0, 0, 0.2)",
+      borderRadius: 12,
+      border: "solid 1px rgba(0, 0, 0, 0.15)",
+    },
+    "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.primary.main,
+    },
+    "& .MuiOutlinedInput-root.Mui-focused": {
+      boxShadow: "0 8px 24px -12px rgba(255, 223, 88, 0.6)",
+    },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.primary.main,
+      borderWidth: 2,
     },
   },
   inputTitle: {

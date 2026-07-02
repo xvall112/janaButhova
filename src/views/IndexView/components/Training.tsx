@@ -8,20 +8,52 @@ import { Button, useMediaQuery, Grid, Box, Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   root: {
+    position: "relative",
     "& a": {
       color: "white",
       textDecoration: "none",
     },
     "& img": {
-      transition: "all 0.5s ease-out,-webkit-transform .5s ease-in-out",
+      transition: "transform .6s cubic-bezier(0.16, 1, 0.3, 1)",
       transform: "scale(1.0)",
     },
-    "& :hover": {
-      "& img": {
-        transition: "all 0.5s ease-out,-webkit-transform .5s ease-in-out",
-        transform: "scale(1.1)",
-      },
+    "&:hover img": {
+      transform: "scale(1.08)",
     },
+    "&:hover $overlay": {
+      background:
+        "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.85) 100%)",
+    },
+    "&:hover $accent": {
+      width: 90,
+    },
+    "&:hover $title": {
+      color: theme.palette.primary.main,
+    },
+  },
+  overlay: {
+    gridArea: "1/1",
+    position: "relative",
+    height: "50vh",
+    zIndex: 100,
+    placeItems: "center",
+    display: "grid",
+    transition: "background .5s ease",
+    background:
+      "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.75) 100%)",
+  },
+  title: {
+    transition: "color .35s ease",
+  },
+  accent: {
+    width: 48,
+    height: 4,
+    borderRadius: 4,
+    background: theme.palette.primary.main,
+    margin: "0 auto",
+    marginTop: theme.spacing(1.5),
+    marginBottom: theme.spacing(1),
+    transition: "width .4s cubic-bezier(0.16, 1, 0.3, 1)",
   },
 }))
 
@@ -35,19 +67,7 @@ const Training = ({ data }) => {
             <Grid item xs={12} md={4} key={index} className={classes.root}>
               <Link to={`/nabizim/${item.slug}`}>
                 <div style={{ display: "grid" }}>
-                  <div
-                    style={{
-                      // By using the same grid area for both, they are stacked on top of each other
-                      gridArea: "1/1",
-                      position: "relative",
-                      height: "50vh",
-                      zIndex: 100,
-                      // This centers the other elements inside the hero component
-                      placeItems: "center",
-                      display: "grid",
-                      backgroundColor: "rgba(0, 0, 0, 0.4)",
-                    }}
-                  >
+                  <div className={classes.overlay}>
                     <Grid
                       container
                       direction="column"
@@ -57,6 +77,7 @@ const Training = ({ data }) => {
                     >
                       <Typography component="span" variant="button">
                         <Box
+                          className={classes.title}
                           fontSize={32}
                           fontWeight="bold"
                           letterSpacing={2}
@@ -64,6 +85,8 @@ const Training = ({ data }) => {
                         >
                           {item.title}
                         </Box>
+
+                        <div className={classes.accent} />
 
                         <Box fontSize={18} textAlign="center">
                           {item.shortDescription && item.shortDescription}

@@ -33,12 +33,90 @@ const useStyles = makeStyles(theme => ({
   img: {
     overflow: "visible",
   },
+  overlay: {
+    gridArea: "1/1",
+    position: "relative",
+    height: "100vh",
+    alignItems: "center",
+    zIndex: 100,
+    display: "grid",
+    background:
+      "linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.2) 100%), radial-gradient(120% 120% at 20% 90%, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 60%)",
+    [theme.breakpoints.down("sm")]: {
+      background:
+        "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85) 100%)",
+    },
+  },
+  overline: {
+    display: "inline-block",
+    color: theme.palette.primary.main,
+    letterSpacing: "0.28em",
+    fontWeight: 700,
+    fontSize: "0.85rem",
+    position: "relative",
+    paddingLeft: theme.spacing(6),
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      left: 0,
+      top: "50%",
+      width: theme.spacing(5),
+      height: 2,
+      background: theme.palette.primary.main,
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: 0,
+      "&::before": { display: "none" },
+    },
+  },
+  gradientTitle: {
+    background: `linear-gradient(120deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.main} 45%, ${theme.palette.primary.dark} 100%)`,
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    filter: "drop-shadow(0 6px 24px rgba(255, 223, 88, 0.25))",
+  },
   subtitle: {
     textAlign: "center",
 
     [theme.breakpoints.up("md")]: {
       textAlign: "left",
     },
+  },
+  scrollIndicator: {
+    position: "absolute",
+    bottom: theme.spacing(4),
+    left: "50%",
+    transform: "translateX(-50%)",
+    zIndex: 200,
+    cursor: "pointer",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: theme.spacing(1),
+    color: theme.palette.primary.main,
+  },
+  mouse: {
+    width: 26,
+    height: 42,
+    border: `2px solid ${theme.palette.primary.main}`,
+    borderRadius: 14,
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: 6,
+  },
+  wheel: {
+    width: 4,
+    height: 8,
+    borderRadius: 4,
+    background: theme.palette.primary.main,
+    animation: "$scrollWheel 1.6s ease-in-out infinite",
+  },
+  "@keyframes scrollWheel": {
+    "0%": { opacity: 0, transform: "translateY(-4px)" },
+    "40%": { opacity: 1 },
+    "80%": { opacity: 0, transform: "translateY(10px)" },
+    "100%": { opacity: 0 },
   },
 }))
 
@@ -65,37 +143,29 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
       </Hidden>
       <Box id="hero">
         <div style={{ display: "grid" }}>
-          <div
-            style={{
-              // By using the same grid area for both, they are stacked on top of each other
-              gridArea: "1/1",
-              position: "relative",
-              height: "100vh",
-              alignItems: "center",
-              zIndex: 100,
-              // This centers the other elements inside the hero component
-              display: "grid",
-              background:
-                "radial-gradient(circle, rgba(50,50,50,0.2) 0%, rgba(0,0,0,0.8998949921765581) 100%)",
-            }}
-          >
+          <div className={classes.overlay}>
             <Section className={classes.sectionNoPaddingY}>
               <Grid item xs={12} md={6} data-aos={"fade-up"}>
                 <Typography
                   component="span"
-                  variant="h5"
-                  color="textPrimary"
                   className={classes.subtitle}
                 >
-                  <Box fontWeight="bold" mb={1}>
-                    FUNKČNÍ & OSOBNÍ TRENÉR
+                  <Box
+                    component="span"
+                    className={classes.overline}
+                    mb={2}
+                    display="inline-block"
+                  >
+                    FUNKČNÍ &amp; OSOBNÍ TRENÉR
                   </Box>
                 </Typography>
                 <SectionHeader
                   title={
                     <span>
-                      <Typography component="span" variant="h2" color="primary">
-                        <Box fontWeight="900">JANA BÚTHOVÁ</Box>
+                      <Typography component="span" variant="h2">
+                        <Box fontWeight="900" className={classes.gradientTitle}>
+                          JANA BÚTHOVÁ
+                        </Box>
                       </Typography>
 
                       <TypedText
@@ -154,6 +224,16 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
               // maxHeight: 600,
             }}
           />
+          <div
+            className={classes.scrollIndicator}
+            onClick={() => scrollTo("#aboutMe")}
+            role="button"
+            aria-label="Přejít níže"
+          >
+            <div className={classes.mouse}>
+              <div className={classes.wheel} />
+            </div>
+          </div>
         </div>
       </Box>
     </>

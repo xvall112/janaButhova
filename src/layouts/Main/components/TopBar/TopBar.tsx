@@ -43,9 +43,26 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
     navigation: {
-      "& :hover": {
-        cursor: "pointer",
+      cursor: "pointer",
+      position: "relative",
+      transition: "color .25s ease",
+      "&::after": {
+        content: '""',
+        position: "absolute",
+        left: theme.spacing(2),
+        right: theme.spacing(2),
+        bottom: -2,
+        height: 2,
+        background: theme.palette.primary.main,
+        transform: "scaleX(0)",
+        transformOrigin: "left center",
+        transition: "transform .3s cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      "&:hover": {
         color: theme.palette.primary.light,
+      },
+      "&:hover::after": {
+        transform: "scaleX(1)",
       },
     },
     toolbar: {
