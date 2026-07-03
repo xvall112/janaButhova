@@ -28,6 +28,20 @@ const useStyles = makeStyles(theme => ({
     "&:first-child": {
       marginLeft: theme.spacing(0),
     },
+    // Stack CTAs full-width on mobile so they aren't cramped side by side.
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      marginLeft: 0,
+      marginTop: theme.spacing(1.5),
+      "&:first-child": {
+        marginTop: 0,
+      },
+    },
+  },
+  ctaContainer: {
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
 }))
 
@@ -152,7 +166,7 @@ const SectionHeader = ({
             justify={justifyGrid}
             alignItems="center"
             wrap="nowrap"
-            className="section-header__cta-container"
+            className={clsx("section-header__cta-container", classes.ctaContainer)}
           >
             {ctaGroup.map((item, index) => (
               <div

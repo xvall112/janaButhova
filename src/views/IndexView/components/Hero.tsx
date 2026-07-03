@@ -192,6 +192,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                       variant="contained"
                       color="primary"
                       size="large"
+                      fullWidth={!isMd}
                       onClick={() => scrollTo("#training")}
                     >
                       pojď trénovat!
@@ -200,6 +201,7 @@ const Hero = ({ className, ...rest }: ViewComponentProps): JSX.Element => {
                       variant="outlined"
                       color="primary"
                       size="large"
+                      fullWidth={!isMd}
                       onClick={() => scrollTo("#aboutMe")}
                     >
                       o mně
